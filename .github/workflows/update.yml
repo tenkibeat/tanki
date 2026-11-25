@@ -1,0 +1,77 @@
+name: update
+on:
+  schedule:
+    - cron: '17 * * * *'   # 毎時17分（UTC）に新しい号をチェック
+  workflow_dispatch:
+    inputs:
+      rebuild:
+        description: 'ページだけ作り直す（新しい号がなくても）'
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: tanki
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: 公開用ブランチを取得
+        run: |
+          if git ls-remote --exit-code origin gh-pages >/dev/null; then
+            git clone --depth 1 --branch gh-pages "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" site
+            rm -rf site/.git
+          else
+            mkdir site
+          fi
+      - name: 道具を準備（PDF）
+        run: sudo apt-get -qq update && sudo apt-get -qq install -y poppler-utils >/dev/null
+      - name: 新しい号があるか確認
+        id: check
+        run: python3 build/pipeline.py check
+      - name: 道具を準備（音声）
+        if: steps.check.outputs.new == 'true'
+        run: |
+          sudo apt-get -qq install -y ffmpeg >/dev/null
+          pip install -q kokoro-onnx soundfile
+      - name: Kokoroのモデルを用意
+        if: steps.check.outputs.new == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .kokoro
+          key: kokoro-v1.0
+      - name: モデルをダウンロード（初回のみ）
+        if: steps.check.outputs.new == 'true'
+        run: |
+          mkdir -p .kokoro
+          [ -f .kokoro/kokoro-v1.0.onnx ] || curl -sSL -o .kokoro/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+          [ -f .kokoro/voices-v1.0.bin ] || curl -sSL -o .kokoro/voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+      - name: 英訳・単語・音声を作る
+        if: steps.check.outputs.new == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 build/pipeline.py fetch
+      - name: ページを作る
+        if: steps.check.outputs.new == 'true' || inputs.rebuild
+        run: python3 build/pipeline.py render
+      - name: 号のデータを保存（main）
+        if: steps.check.outputs.new == 'true'
+        run: |
+          git config user.name "tanki-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "号を追加: ${{ steps.check.outputs.id }}" || exit 0
+          git push
+      - name: 公開（gh-pages、履歴なし）
+        if: steps.check.outputs.new == 'true' || inputs.rebuild
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git config user.name "tanki-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "公開 $(date -u +%FT%TZ)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" gh-pages
