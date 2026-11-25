@@ -139,7 +139,7 @@ def tidy_ja(s):
     # PDF由来の「28 日」「500hPa 5700」などの余分な半角スペースを、日本語の文字に隣接するものだけ取り除く
     s = re.sub(r'\s+', ' ', s).strip()
     s = re.sub(rf'(?<={JP}) +| +(?={JP})', '', s)
-    return s
+    return re.sub(r'([\u2460-\u2473]) *', r'\1 ', s)
 
 
 def check_ja(result, text):
