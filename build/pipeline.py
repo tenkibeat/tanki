@@ -132,6 +132,16 @@ def gemini(pdf, text):
     return json.loads(out)
 
 
+JP = r'[\u3000-\u30ff\u3400-\u9fff\uff00-\uffef]'
+
+
+def tidy_ja(s):
+    # PDF由来の「28 日」「500hPa 5700」などの余分な半角スペースを、日本語の文字に隣接するものだけ取り除く
+    s = re.sub(r'\s+', ' ', s).strip()
+    s = re.sub(rf'(?<={JP}) +| +(?={JP})', '', s)
+    return s
+
+
 def check_ja(result, text):
     norm = lambda s: re.sub(r'\s+', '', unicodedata.normalize('NFKC', s)).replace('（注）', '')
     src = norm(text)
@@ -186,6 +196,10 @@ def cmd_fetch():
     outdir.mkdir(parents=True, exist_ok=True)
     extract_chart(pdf, outdir / 'chart.jpg')
     r = gemini(pdf, text)
+    for s in r['sections']:
+        s['ja'] = tidy_ja(s['ja'])
+    for v in r['vocab']:
+        v['exja'] = tidy_ja(v['exja'])
     mism = check_ja(r, text)
     d = {'id': iid, 'issued': when.isoformat(), 'no': no, 'title_en': r['title_en'], 'by': f'Gemini（{MODEL}）',
          'sections': r['sections'], 'vocab': r['vocab'],
