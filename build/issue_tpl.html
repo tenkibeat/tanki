@@ -68,7 +68,7 @@ input[type=search]{width:100%;font:16px "Noto Sans JP",sans-serif;min-height:44p
 .bi{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:8px}
 .bb{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center}
 .play-m{width:54px;height:54px;background:var(--red);border-color:var(--red);color:#fff}
-.prog{flex:1;font:500 13px Archivo,"Noto Sans JP",sans-serif;color:var(--mute);display:flex;flex-direction:column;gap:4px}#pt{white-space:nowrap}#pt b{color:var(--ink);font-weight:600}.now{max-width:720px;margin:0 auto 6px;font:14px/1.4 Archivo,sans-serif;white-space:nowrap;overflow:hidden;min-height:1.4em}.now:empty{display:none}.now .tx{display:inline-block;will-change:transform;color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,var(--ink) 0,var(--ink) var(--p,0%),var(--blue) var(--p,0%),var(--blue) 100%);background-color:transparent}.now .tx b{font-weight:inherit}.sep{width:1px;align-self:stretch;background:var(--line);margin:0 2px}.here{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(110px + env(safe-area-inset-bottom));z-index:7;font:600 14px "Noto Sans JP",Archivo,sans-serif;min-height:40px;padding:0 16px;border-radius:20px;border:0;background:var(--ink);color:var(--bg);box-shadow:0 4px 14px rgba(0,0,0,.2)}.here[hidden]{display:none}
+.prog{flex:1;font:500 13px Archivo,"Noto Sans JP",sans-serif;color:var(--mute);display:flex;flex-direction:column;gap:4px}#pt{white-space:nowrap}#pt b{color:var(--ink);font-weight:600}.now{position:relative;max-width:720px;margin:0 auto 6px;font:15px/22px Archivo,sans-serif;height:22px;overflow:hidden}.now:empty{display:none}.now .tx{white-space:normal}.now i{font-style:normal;color:var(--blue);opacity:.75}.now i.d{color:var(--ink);opacity:1}.jp{border-radius:3px;transition:background .2s}.jp.jon{background:light-dark(#e3eef9,#16283b);box-shadow:0 0 0 2px light-dark(#e3eef9,#16283b)}.sep{width:1px;align-self:stretch;background:var(--line);margin:0 2px}.here{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(110px + env(safe-area-inset-bottom));z-index:7;font:600 14px "Noto Sans JP",Archivo,sans-serif;min-height:40px;padding:0 16px;border-radius:20px;border:0;background:var(--ink);color:var(--bg);box-shadow:0 4px 14px rgba(0,0,0,.2)}.here[hidden]{display:none}
 .track{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
 .track i{display:block;height:100%;width:0;background:var(--red)}
 select{font:500 15px Archivo,sans-serif;height:44px;border-radius:22px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 8px}
@@ -133,9 +133,12 @@ const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.par
 /* reading */
 const S=[];let h='';
 D.secs.forEach(x=>{
+  const s0=S.length;
   const en=x.en.map(t=>{S.push(t);return `<span class="s" data-i="${S.length-1}">${esc(t)}</span>`}).join(' ');
-  h+=x.h?`<h2>${esc(x.ja)}<span class="h-en">${en}</span></h2>`
-   :`<p class="ja">${esc(x.ja)}</p><button class="rv for-ja">和訳を見る</button><p class="en">${en}</p><button class="rv for-en">英訳を見る</button>`;
+  const s1=S.length-1;
+  const jp=(x.jp&&x.jp.length===x.en.length)?x.jp.map((p,k)=>`<span class="jp" data-a="${s0+k}" data-b="${s0+k}">${esc(p)}</span>`).join(''):`<span class="jp" data-a="${s0}" data-b="${s1}">${esc(x.ja)}</span>`;
+  h+=x.h?`<h2>${jp}<span class="h-en">${en}</span></h2>`
+   :`<p class="ja">${jp}</p><button class="rv for-ja">和訳を見る</button><p class="en">${en}</p><button class="rv for-en">英訳を見る</button>`;
 });
 $('body').innerHTML=h;
 $('body').addEventListener('click',e=>{const b=e.target.closest('.rv');if(!b)return;const p=b.classList.contains('for-ja')?b.previousElementSibling:b.previousElementSibling;p.classList.toggle('show');b.textContent=p.classList.contains('show')?'隠す':(b.classList.contains('for-ja')?'和訳を見る':'英訳を見る')});
@@ -158,7 +161,10 @@ $('autoB').onclick=e=>{auto=!auto;e.currentTarget.setAttribute('aria-pressed',au
 let rate=+ls.get('tk_rate',1);$('rate').value=String(rate);A.playbackRate=rate;
 if(!HAS){$('pt').textContent='この号の音声は保存期間（1か月）を過ぎました';['play','prev','next','rate'].forEach(i=>$(i).disabled=true)}
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const mark=i=>{if(i===last)return;last=i;spans.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));if(auto&&tab==='read'&&!A.paused&&spans[i])spans[i].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});$('pt').innerHTML=`<b>${i+1} / ${S.length}</b>`;$('now').innerHTML=`<span class="tx" id="tx">${esc(S[i])}</span>`;where()};
+const mark=i=>{if(i===last)return;last=i;spans.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));if(auto&&tab==='read'&&!A.paused&&spans[i])spans[i].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});$('pt').innerHTML=`<b>${i+1} / ${S.length}</b>`;jps.forEach(e=>e.classList.toggle('jon',i>=+e.dataset.a&&i<=+e.dataset.b));cap(i);where()};
+const jps=[...document.querySelectorAll('.jp')];
+let words=[],wlen=[],wdone=-1,wline=-1;
+const cap=i=>{const ws=S[i].split(/\s+/).filter(Boolean);$('now').innerHTML=`<div class="tx" id="tx">${ws.map(w=>`<i>${esc(w)}</i>`).join(' ')}</div>`;words=[...$('tx').children];let c=0;wlen=ws.map(w=>c+=w.length+1);wdone=-1;wline=-1;kara()};
 const where=()=>{const h=$('here');const el=spans[last];if(tab!=='read'||last<0||!el||(A.paused&&!A.currentTime)){h.hidden=true;return}const r=el.getBoundingClientRect(),top=document.querySelector('header').getBoundingClientRect().bottom,bot=document.querySelector('.bar').getBoundingClientRect().top;if(r.bottom<top+4){h.textContent=`↑ 読み上げ中（${last+1}/${S.length}）`;h.hidden=false}else if(r.top>bot-4){h.textContent=`↓ 読み上げ中（${last+1}/${S.length}）`;h.hidden=false}else h.hidden=true};
 let wq=0;addEventListener('scroll',()=>{if(wq)return;wq=requestAnimationFrame(()=>{wq=0;where()})},{passive:true});addEventListener('resize',where);
 $('here').onclick=()=>{spans[last]&&spans[last].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})};
@@ -166,7 +172,7 @@ const idx=t=>{let i=0;while(i+1<T.length&&T[i+1]<=t+0.05)i++;return i};
 A.ontimeupdate=()=>{if(A.seeking)return;cur=idx(A.currentTime);mark(cur);$('pb').style.width=(A.duration?A.currentTime/A.duration*100:0)+'%'};
 const icon=p=>{$('pi').innerHTML=p?'<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>':'<path d="M7 4v16l13-8z"/>';$('play').setAttribute('aria-label',p?'一時停止':'再生')};
 A.onplay=()=>{icon(true);VA.pause();loop()};A.onpause=A.onended=()=>icon(false);
-let raf=0;const kara=()=>{const tx=$('tx'),box=$('now');if(!tx||last<0)return;const st=T[last],en=last+1<T.length?T[last+1]-0.45:(A.duration||st+5);const f=Math.max(0,Math.min(1,(A.currentTime-st)/Math.max(0.3,en-st)));tx.style.setProperty('--p',(f*100).toFixed(1)+'%');const W=tx.scrollWidth,B=box.clientWidth,x=Math.max(0,Math.min(W-B,f*W-B*0.45));tx.style.transform=`translateX(${-Math.max(0,x)}px)`};
+let raf=0;const kara=()=>{const tx=$('tx');if(!tx||last<0||!words.length)return;const st=T[last],en=last+1<T.length?T[last+1]-0.45:(A.duration||st+5);const f=Math.max(0,Math.min(1,(A.currentTime-st)/Math.max(0.3,en-st)));const tot=wlen[wlen.length-1];let k=0;while(k<wlen.length-1&&wlen[k]<=f*tot)k++;if(f<=0.001)k=-1;else if(f>=0.999)k=words.length-1;if(k!==wdone){words.forEach((w,j)=>w.classList.toggle('d',j<=k));wdone=k}const cur=words[Math.max(0,Math.min(words.length-1,k+1))]||words[0];const top=cur.offsetTop;if(top!==wline){tx.style.transform=`translateY(${-top}px)`;wline=top}};
 const loop=()=>{cancelAnimationFrame(raf);const step=()=>{kara();if(!A.paused)raf=requestAnimationFrame(step)};raf=requestAnimationFrame(step)};
 const seek=t=>{if(A.readyState>=1)A.currentTime=t;else A.addEventListener('loadedmetadata',()=>{A.currentTime=t},{once:true})};
 const go=i=>{i=Math.max(0,Math.min(S.length-1,i));seek(T[i]);cur=i;last=-1;mark(i);A.play().catch(()=>{})};

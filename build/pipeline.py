@@ -79,7 +79,8 @@ SCHEMA = {
         'title_en': {'type': 'STRING'},
         'sections': {'type': 'ARRAY', 'items': {'type': 'OBJECT', 'properties': {
             'heading': {'type': 'BOOLEAN'}, 'ja': {'type': 'STRING'},
-            'en': {'type': 'ARRAY', 'items': {'type': 'STRING'}}}, 'required': ['heading', 'ja', 'en']}},
+            'en': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
+            'ja_parts': {'type': 'ARRAY', 'items': {'type': 'STRING'}}}, 'required': ['heading', 'ja', 'en', 'ja_parts']}},
         'vocab': {'type': 'ARRAY', 'items': {'type': 'OBJECT', 'properties': {
             'w': {'type': 'STRING'}, 'pos': {'type': 'STRING'}, 'ipa': {'type': 'STRING'}, 'ja': {'type': 'STRING'},
             'ex': {'type': 'STRING'}, 'exja': {'type': 'STRING'}}, 'required': ['w', 'pos', 'ipa', 'ja', 'ex', 'exja']}},
@@ -96,6 +97,7 @@ PROMPT = """あなたは気象庁の予報解説を英語に訳す、気象予�
 1. sections: 本文を上から順に区切る。
    - 見出し（「１．実況上の着目点」など、全角数字＋「．」で始まる行）は heading=true。
    - 本文は ①②… の項目ごと、または見出し直下の段落ごとに1要素（heading=false）。
+   - ja_parts は、en の各文に対応する日本語の部分を、en と同じ数・同じ順番で並べた配列。ja_parts をつなげると ja と1字も違わず同じになるように、ja を切り分ける（言い換え・省略・重複は禁止）。日本語1文が英語2文になったときは、日本語を読点などで切り分けてそろえる。うまく切り分けられないときは、関係の近い英文の側にまとめてよい（そのときも数はそろえる）。見出しは ja_parts=[ja]
    - 見出しと本文が同じ行に続いている場合（例「３．数値予報資料解釈上の留意点 総観場は…」）は、見出しと本文を別の要素に分ける。
    - 「４．防災関連事項」の①②③は1つの本文要素にまとめてよい。
    - 最後の欄外注記（「量的な予報については…」）も本文要素として入れ、ja の先頭に「（注）」を付ける。
@@ -140,6 +142,24 @@ def tidy_ja(s):
     s = re.sub(r'\s+', ' ', s).strip()
     s = re.sub(rf'(?<={JP}) +| +(?={JP})', '', s)
     return re.sub(r'([\u2460-\u2473]) *', r'\1 ', s)
+
+
+def nz(s):
+    return re.sub(r'\s+', '', unicodedata.normalize('NFKC', s))
+
+
+def split_ja(ja, n):
+    # 対応表がないときの簡易版：「。」で切って、英文の数とそろえば使う
+    parts = [p for p in re.findall(r'[^。]*。|[^。]+$', ja) if p.strip()]
+    return parts if len(parts) == n else None
+
+
+def check_parts(s):
+    parts = [tidy_ja(p) for p in s.get('ja_parts') or []]
+    if len(parts) == len(s['en']) and nz(''.join(parts)) == nz(s['ja']) and all(p.strip() for p in parts):
+        return parts
+    log('対応表が合わないので簡易版を使います:', s['ja'][:20])
+    return split_ja(s['ja'], len(s['en']))
 
 
 def check_ja(result, text):
@@ -198,6 +218,7 @@ def cmd_fetch():
     r = gemini(pdf, text)
     for s in r['sections']:
         s['ja'] = tidy_ja(s['ja'])
+        s['ja_parts'] = check_parts(s)
     for v in r['vocab']:
         v['exja'] = tidy_ja(v['exja'])
     mism = check_ja(r, text)
@@ -222,7 +243,9 @@ def render_issue(d):
     outdir.mkdir(parents=True, exist_ok=True)
     has_audio = (outdir / 'audio.mp3').exists() and (outdir / 'vocab.mp3').exists()
     pub = {k: d[k] for k in ('sections', 'vocab', 'legend')}
-    pub['secs'] = [{'h': s['heading'], 'ja': s['ja'], 'en': s['en']} for s in d['sections']]
+    pub['secs'] = [{'h': s['heading'], 'ja': s['ja'], 'en': s['en'],
+                    'jp': s.get('ja_parts') or ([s['ja']] if s['heading'] else split_ja(s['ja'], len(s['en'])))}
+                   for s in d['sections']]
     pub.update(times=d.get('times', []), vtimes=d.get('vtimes', []), audio=has_audio)
     del pub['sections']
     title_ja = f'短期予報解説資料{d.get("no","1")}　{when.year}年{when.month}月{when.day}日{when:%H}時{when:%M}分発表　気象庁'
