@@ -17,15 +17,15 @@
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Noto Sans JP",system-ui,sans-serif;overflow-x:clip;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .wrap{max-width:720px;margin:0 auto;padding:0 max(4vw,16px)}
 header{position:sticky;top:0;z-index:5;background:var(--bg);border-top:5px solid var(--ink);border-bottom:1px solid var(--line)}
-.ht{padding:10px 0 2px}.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.arc{flex:none;font:600 14px "Noto Sans JP",sans-serif;color:var(--blue);text-decoration:none;padding:8px 0}
-h1{font:800 20px/1.2 Archivo,"Noto Sans JP",sans-serif;font-stretch:110%;margin:0}
+.ht{padding:8px 0 0}.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.arc{flex:none;font:600 14px "Noto Sans JP",sans-serif;color:var(--blue);text-decoration:none;padding:8px 0}
+h1{font:800 18px/1.25 Archivo,"Noto Sans JP",sans-serif;font-stretch:105%;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sub{color:var(--mute);font-size:13px;margin:2px 0 0}
 .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:6px}
-.tab{all:unset;cursor:pointer;text-align:center;font:600 15px "Noto Sans JP",sans-serif;color:var(--mute);min-height:44px;line-height:44px;border-bottom:3px solid transparent}
+.tab{all:unset;cursor:pointer;text-align:center;font:600 15px "Noto Sans JP",sans-serif;color:var(--mute);min-height:40px;line-height:40px;border-bottom:3px solid transparent}
 .tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red)}
 .tab:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
 .panel{display:none;padding-top:14px}.panel.on{display:block}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}.mbar{display:flex;align-items:center;gap:8px;padding:6px 0 7px}.mbar[hidden]{display:none}.seg{flex:1;display:grid;grid-template-columns:1.35fr 1fr 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card)}.seg button{all:unset;cursor:pointer;text-align:center;font:500 13px/30px "Noto Sans JP",sans-serif;color:var(--mute);white-space:nowrap}.seg button+button{border-left:1px solid var(--line)}.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}.auto{flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--mute)}.auto[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}.seg button:focus-visible,.auto:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
 .pill{font:500 14px "Noto Sans JP",sans-serif;min-height:40px;padding:0 14px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
 .pill[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 h2{font:700 17px/1.45 "Noto Sans JP",sans-serif;margin:26px 0 4px;padding-top:12px;border-top:2px solid var(--ink)}
@@ -79,21 +79,22 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 </head>
 <body class="m-both">
 <header><div class="wrap">
-<div class="ht"><div class="top"><h1>%%H1%%</h1><a class="arc" href="../../archive.html">バックナンバー</a></div><p class="sub">%%TEN%%</p></div>
+<div class="ht"><div class="top"><h1>%%H1%%</h1><a class="arc" href="../../archive.html">バックナンバー</a></div></div>
 <nav class="tabs" role="tablist">
 <button class="tab" role="tab" data-t="read" aria-selected="true">対訳</button>
 <button class="tab" role="tab" data-t="chart" aria-selected="false">解説図</button>
 <button class="tab" role="tab" data-t="vocab" aria-selected="false" id="vtab">単語帳</button>
 </nav>
+<div class="mbar" id="mbar">
+<div class="seg" id="modes" role="group" aria-label="表示">
+<button data-m="both" aria-pressed="true">日英どちらも</button><button data-m="en" aria-pressed="false">英語</button><button data-m="ja" aria-pressed="false">日本語</button>
+</div>
+<button class="auto" id="autoB" aria-pressed="false" aria-label="自動スクロール" title="自動スクロール"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 8l5-5 5 5M7 16l5 5 5-5"/></svg></button>
+</div>
 </div></header>
 <div class="wrap">
 <section class="panel on" id="p-read">
-<div class="pills" id="modes">
-<button class="pill" data-m="both" aria-pressed="true">日英どちらも</button>
-<button class="pill" data-m="en" aria-pressed="false">英語だけ</button>
-<button class="pill" data-m="ja" aria-pressed="false">日本語だけ</button>
-<button class="pill" id="autoB" aria-pressed="false">自動スクロール</button>
-</div>
+<p class="sub">%%TEN%%</p>
 <main id="body"></main>
 <p class="note">原文：%%TJA%%（<a href="%%SRC%%">気象庁</a>）。英訳・単語：%%BY%%。音声：Kokoro（af_heart）。<span id="noaudio"></span></p>
 </section>
@@ -138,12 +139,12 @@ D.secs.forEach(x=>{
 });
 $('body').innerHTML=h;
 $('body').addEventListener('click',e=>{const b=e.target.closest('.rv');if(!b)return;const p=b.classList.contains('for-ja')?b.previousElementSibling:b.previousElementSibling;p.classList.toggle('show');b.textContent=p.classList.contains('show')?'隠す':(b.classList.contains('for-ja')?'和訳を見る':'英訳を見る')});
-const setMode=m=>{document.body.className='m-'+m;document.querySelectorAll('#modes .pill[data-m]').forEach(p=>p.setAttribute('aria-pressed',p.dataset.m===m));document.querySelectorAll('.show').forEach(x=>x.classList.remove('show'));document.querySelectorAll('.rv').forEach(b=>b.textContent=b.classList.contains('for-ja')?'和訳を見る':'英訳を見る');ls.set('tk_mode',m)};
-document.querySelectorAll('#modes .pill[data-m]').forEach(p=>p.onclick=()=>setMode(p.dataset.m));
+const setMode=m=>{document.body.className='m-'+m;document.querySelectorAll('#modes [data-m]').forEach(p=>p.setAttribute('aria-pressed',p.dataset.m===m));document.querySelectorAll('.show').forEach(x=>x.classList.remove('show'));document.querySelectorAll('.rv').forEach(b=>b.textContent=b.classList.contains('for-ja')?'和訳を見る':'英訳を見る');ls.set('tk_mode',m)};
+document.querySelectorAll('#modes [data-m]').forEach(p=>p.onclick=()=>setMode(p.dataset.m));
 setMode(ls.get('tk_mode','both'));
 /* tabs */
 const pos={read:0,chart:0,vocab:0};let tab='read';
-const show=t=>{if(t===tab)return;pos[tab]=scrollY;tab=t;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+t));
+const show=t=>{if(t===tab)return;pos[tab]=scrollY;tab=t;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+t));$('mbar').hidden=t!=='read';
   if(t==='read'&&!A.paused&&auto){spans[cur]&&spans[cur].scrollIntoView({block:'center'})}else scrollTo(0,pos[t]);where()};
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(b.dataset.t));
 $('toRead').onclick=()=>{show('read');spans[cur]&&spans[cur].scrollIntoView({block:'center'})};

@@ -227,7 +227,7 @@ def render_issue(d):
     del pub['sections']
     title_ja = f'短期予報解説資料{d.get("no","1")}　{when.year}年{when.month}月{when.day}日{when:%H}時{when:%M}分発表　気象庁'
     t = TPL.read_text(encoding='utf-8')
-    rep = {'%%PTITLE%%': f'短期予報解説 {ja_date(when)} 英語', '%%H1%%': f'短期予報解説資料　{ja_date(when)}',
+    rep = {'%%PTITLE%%': f'短期予報解説 {ja_date(when)} 英語', '%%H1%%': f'短期予報解説　{ja_date(when)}',
            '%%TEN%%': html.escape(d['title_en']), '%%TJA%%': html.escape(title_ja), '%%SRC%%': PDF_URL,
            '%%BY%%': html.escape(d.get('by', '')),
            '%%DATA%%': json.dumps(pub, ensure_ascii=False).replace('</', '<\\/')}
