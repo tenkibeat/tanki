@@ -1,0 +1,575 @@
+{
+ "id": "20261126-0340",
+ "issued": "2026-11-26T03:40:00+09:00",
+ "no": "1",
+ "title_en": "JMA Short-Range Forecast Discussion — issued 03:40 JST, 26 November 2026",
+ "by": "Gemini（gemini-3.8-flash）",
+ "sections": [
+  {
+   "heading": true,
+   "ja": "１．実況上の着目点",
+   "en": [
+    "1. Highlights of the Current Weather Situation"
+   ],
+   "ja_parts": [
+    "１．実況上の着目点"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "① 高気圧が、九州付近と華中にあって、東～西日本と南西諸島付近を覆っている。",
+   "en": [
+    "(1) High-pressure systems located near Kyushu and over Central China are covering eastern to western Japan and the vicinity of the Nansei Islands."
+   ],
+   "ja_parts": [
+    "① 高気圧が、九州付近と華中にあって、東～西日本と南西諸島付近を覆っている。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "② 500hPa 5160～5340mで、-33℃以下の寒気を伴うトラフが沿海州付近を東進し、500hPa 5520m付近で-24℃以下の寒気を伴うトラフが日本海を東進。下層は西よりの風の暖気移流場で、北～東日本の日本海側中心に雨や雪。東北日本海側の沿岸付近で発雷。",
+   "en": [
+    "(2) At 500 hPa (geopotential heights of 5,160–5,340 m), a trough accompanied by cold air below -33°C is moving eastward near Primorsky Krai, and at 500 hPa near 5,520 m, a trough accompanied by cold air below -24°C is moving eastward across the Sea of Japan.",
+    "In the lower layers, a westerly warm advection regime prevails, bringing rain or snow primarily to the Sea of Japan side of northern to eastern Japan.",
+    "Lightning has been observed near the coast of the Sea of Japan side of the Tohoku region."
+   ],
+   "ja_parts": [
+    "② 500hPa 5160～5340mで、-33℃以下の寒気を伴うトラフが沿海州付近を東進し、500hPa 5520m付近で-24℃以下の寒気を伴うトラフが日本海を東進。",
+    "下層は西よりの風の暖気移流場で、北～東日本の日本海側中心に雨や雪。",
+    "東北日本海側の沿岸付近で発雷。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "③ 500hPa 5700～5820mのトラフが華中～華南を東進。トラフ前面の雲が南西諸島や西日本付近まで広がっている。",
+   "en": [
+    "(3) At 500 hPa (geopotential heights of 5,700–5,820 m), a trough is moving eastward across Central to Southern China.",
+    "Clouds ahead of the trough are spreading to the Nansei Islands and the vicinity of western Japan."
+   ],
+   "ja_parts": [
+    "③ 500hPa 5700～5820mのトラフが華中～華南を東進。",
+    "トラフ前面の雲が南西諸島や西日本付近まで広がっている。"
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "２．主要じょう乱の予想根拠と防災事項を含む解説上の留意点",
+   "en": [
+    "2. Basis for Major Disturbance Forecasts and Operational Points for Disaster Prevention"
+   ],
+   "ja_parts": [
+    "２．主要じょう乱の予想根拠と防災事項を含む解説上の留意点"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "① 26日は、1項② の上層トラフが北～東日本付近を通過し、対応する低気圧が朝には北海道付近に発生して東北東進。低気圧に向かう下層暖湿気と上層寒気の影響で、大気の状態が不安定となる所がある。北～東日本では26日は、落雷、突風、降ひょう、急な強い雨に注意。",
+   "en": [
+    "(1) On the 26th, the upper-level trough described in Section 1 (2) will pass across northern to eastern Japan, and an associated low-pressure system will form near Hokkaido in the morning and move east-northeastward.",
+    "Due to the influence of warm, moist air in the lower layers flowing toward the low and upper-level cold air, the atmosphere will become unstable in some areas.",
+    "In northern to eastern Japan on the 26th, watch for lightning strikes, gusty winds, hail, and sudden heavy rain."
+   ],
+   "ja_parts": [
+    "① 26日は、1項② の上層トラフが北～東日本付近を通過し、対応する低気圧が朝には北海道付近に発生して東北東進。",
+    "低気圧に向かう下層暖湿気と上層寒気の影響で、大気の状態が不安定となる所がある。",
+    "北～東日本では26日は、落雷、突風、降ひょう、急な強い雨に注意。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "② 1項③ のトラフの接近に伴い、前線が26日朝までに沖縄の南で顕在化して北東へのび、日本の東を東へ移動する高気圧の縁を回る下層暖湿気が流れ込む。その後、27日夜までに前線上の日本の南に低気圧が発生して東北東進し、28日は低気圧が伊豆諸島付近を通って日本の東に進む。下層暖湿気の影響で大気の状態が非常に不安定となり、雷を伴う激しい雨が降って大雨となる所がある。沖縄地方では26日は、土砂災害、低い土地の浸水、河川の増水に注意・警戒。南西諸島では28日にかけて、東日本では28日は、落雷、突風に注意。沖縄地方では竜巻などの激しい突風に注意。",
+   "en": [
+    "(2) As the trough described in Section 1 (3) approaches, a front will become distinct south of Okinawa by the morning of the 26th and extend northeastward, with warm, moist air in the lower layers flowing in around the edge of the high-pressure system moving eastward to the east of Japan.",
+    "Subsequently, by the night of the 27th, a low will form on the front south of Japan and track east-northeastward, and on the 28th, the low will pass near the Izu Islands and move to the east of Japan.",
+    "Under the influence of warm, moist air in the lower layers, the atmosphere will become extremely unstable, and heavy rain accompanied by thunderstorms and localized downpours is expected in some places.",
+    "In the Okinawa region on the 26th, watch for and be on high alert for landslides, inundation of low-lying areas, and river swelling.",
+    "Through the 28th in the Nansei Islands, and on the 28th in eastern Japan, watch for lightning strikes and gusty winds.",
+    "In the Okinawa region, watch for severe gusts including tornadoes."
+   ],
+   "ja_parts": [
+    "② 1項③ のトラフの接近に伴い、前線が26日朝までに沖縄の南で顕在化して北東へのび、日本の東を東へ移動する高気圧の縁を回る下層暖湿気が流れ込む。",
+    "その後、27日夜までに前線上の日本の南に低気圧が発生して東北東進し、28日は低気圧が伊豆諸島付近を通って日本の東に進む。",
+    "下層暖湿気の影響で大気の状態が非常に不安定となり、雷を伴う激しい雨が降って大雨となる所がある。",
+    "沖縄地方では26日は、土砂災害、低い土地の浸水、河川の増水に注意・警戒。",
+    "南西諸島では28日にかけて、東日本では28日は、落雷、突風に注意。",
+    "沖縄地方では竜巻などの激しい突風に注意。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "③ 28日は、500hPa 5340m付近で-33℃以下の寒気を伴うトラフ対応の低気圧が沿海州付近からオホーツク海に進み、前線が北日本付近を通過。500hPa 5520m付近で-30℃程度の寒気を伴うトラフが西日本付近に進む。上層寒気と低気圧や前線に向かう下層暖湿気の影響で大気の状態が不安定となる所がある。北日本では27～28日は、東～西日本では28日は、落雷、突風、降ひょう、急な強い雨に注意。",
+   "en": [
+    "(3) On the 28th, a low corresponding to a trough accompanied by cold air below -33°C at 500 hPa near 5,340 m will advance from near Primorsky Krai to the Sea of Okhotsk, and an associated front will pass across northern Japan.",
+    "A trough accompanied by cold air around -30°C at 500 hPa near 5,520 m will advance toward western Japan.",
+    "Due to upper-level cold air and warm, moist air in the lower layers flowing toward the low and front, the atmosphere will become unstable in some areas.",
+    "From the 27th to the 28th in northern Japan, and on the 28th in eastern to western Japan, watch for lightning strikes, gusty winds, hail, and sudden heavy rain."
+   ],
+   "ja_parts": [
+    "③ 28日は、500hPa 5340m付近で-33℃以下の寒気を伴うトラフ対応の低気圧が沿海州付近からオホーツク海に進み、前線が北日本付近を通過。",
+    "500hPa 5520m付近で-30℃程度の寒気を伴うトラフが西日本付近に進む。",
+    "上層寒気と低気圧や前線に向かう下層暖湿気の影響で大気の状態が不安定となる所がある。",
+    "北日本では27～28日は、東～西日本では28日は、落雷、突風、降ひょう、急な強い雨に注意。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "④ 2項① ～③ の低気圧や前線の影響で、強い風や非常に強い風が吹いて、波が高くなりしける所がある。北海道地方では26日は、強風に注意・警戒。北～東日本と南西諸島では28日にかけて、西日本では28日は、強風や高波に注意。",
+   "en": [
+    "(4) Under the influence of the low-pressure systems and fronts mentioned in Section 2 (1) through (3), strong to very strong winds will blow, causing high seas and rough conditions in some areas.",
+    "In the Hokkaido region on the 26th, watch for and be on high alert for strong winds.",
+    "Through the 28th in northern to eastern Japan and the Nansei Islands, and on the 28th in western Japan, watch for strong winds and high waves."
+   ],
+   "ja_parts": [
+    "④ 2項① ～③ の低気圧や前線の影響で、強い風や非常に強い風が吹いて、波が高くなりしける所がある。",
+    "北海道地方では26日は、強風に注意・警戒。",
+    "北～東日本と南西諸島では28日にかけて、西日本では28日は、強風や高波に注意。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "⑤ モンゴル周辺の黄砂の舞い上がりは、実況と比べて予想が過大であることに留意。",
+   "en": [
+    "(5) Note that the forecasted lofting of Asian dust (kosa) around Mongolia is an overestimate compared to actual observations."
+   ],
+   "ja_parts": [
+    "⑤ モンゴル周辺の黄砂の舞い上がりは、実況と比べて予想が過大であることに留意。"
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "３．数値予報資料解釈上の留意点",
+   "en": [
+    "3. Operational Points for Numerical Weather Prediction Guidance Interpretation"
+   ],
+   "ja_parts": [
+    "３．数値予報資料解釈上の留意点"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "総観場はGSMを基本、量的予想や降水分布はMSMやLFMも参考。",
+   "en": [
+    "Base synoptic-scale assessments on GSM, while also consulting MSM and LFM for quantitative forecasts and precipitation distribution."
+   ],
+   "ja_parts": [
+    "総観場はGSMを基本、量的予想や降水分布はMSMやLFMも参考。"
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "４．防災関連事項",
+   "en": [
+    "4. Disaster Prevention Matters"
+   ],
+   "ja_parts": [
+    "４．防災関連事項"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "[量的予報等] ① 雨量(06時からの24時間)：沖縄100mm。② 波浪(明日まで)：北海道・東北・北陸4、沖縄3m。",
+   "en": [
+    "[Quantitative Forecasts, etc.] (1) Precipitation (24 hours from 06:00): Okinawa 100 mm.",
+    "(2) Wave heights (through tomorrow): Hokkaido, Tohoku, Hokuriku 4 m; Okinawa 3 m."
+   ],
+   "ja_parts": [
+    "[量的予報等] ① 雨量(06時からの24時間)：沖縄100mm。",
+    "② 波浪(明日まで)：北海道・東北・北陸4、沖縄3m。"
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "５．全般気象解説情報発表の有無",
+   "en": [
+    "5. Schedule for General Weather Commentary Information"
+   ],
+   "ja_parts": [
+    "５．全般気象解説情報発表の有無"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "発表の予定はない。",
+   "en": [
+    "There is no plan to issue information."
+   ],
+   "ja_parts": [
+    "発表の予定はない。"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "（注）量的な予報については、今後の状況により変化する場合がありますので、注意報・警報や全般気象情報等に記述する数値を利用願います。",
+   "en": [
+    "(Note) Quantitative forecasts may vary depending on future developments; please refer to the specific values provided in weather advisories, warnings, and general weather info bulletins."
+   ],
+   "ja_parts": [
+    "（注）量的な予報については、今後の状況により変化する場合がありますので、注意報・警報や全般気象情報等に記述する数値を利用願います。"
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "w": "trough",
+   "pos": "名詞",
+   "ipa": "/trɔːf/",
+   "ja": "気圧の谷、トラフ",
+   "ex": "a trough accompanied by cold air below -33°C is moving eastward",
+   "exja": "-33℃以下の寒気を伴うトラフが東進し"
+  },
+  {
+   "w": "warm advection",
+   "pos": "名詞句",
+   "ipa": "/wɔːrm ædˈvɛkʃən/",
+   "ja": "暖気移流",
+   "ex": "In the lower layers, a westerly warm advection regime prevails",
+   "exja": "下層は西よりの風の暖気移流場で"
+  },
+  {
+   "w": "geopotential height",
+   "pos": "名詞句",
+   "ipa": "/ˌdʒiːoʊpəˈtɛnʃəl haɪt/",
+   "ja": "ジオポテンシャル高度、等高面高度",
+   "ex": "At 500 hPa (geopotential heights of 5,160–5,340 m)",
+   "exja": "500hPa 5160～5340mで"
+  },
+  {
+   "w": "lightning strike",
+   "pos": "名詞句",
+   "ipa": "/ˈlaɪtnɪŋ straɪk/",
+   "ja": "落雷",
+   "ex": "watch for lightning strikes, gusty winds, hail, and sudden heavy rain",
+   "exja": "落雷、突風、降ひょう、急な強い雨に注意"
+  },
+  {
+   "w": "gusty wind",
+   "pos": "名詞句",
+   "ipa": "/ˈɡʌsti wɪnd/",
+   "ja": "突風",
+   "ex": "watch for lightning strikes, gusty winds, hail, and sudden heavy rain",
+   "exja": "落雷、突風、降ひょう、急な強い雨に注意"
+  },
+  {
+   "w": "hail",
+   "pos": "名詞",
+   "ipa": "/heɪl/",
+   "ja": "降雹、ひょう",
+   "ex": "watch for lightning strikes, gusty winds, hail, and sudden heavy rain",
+   "exja": "落雷、突風、降ひょう、急な強い雨に注意"
+  },
+  {
+   "w": "atmospheric instability",
+   "pos": "名詞句",
+   "ipa": "/ˌætməsˈfɛrɪk ˌɪnstəˈbɪləti/",
+   "ja": "大気不安定",
+   "ex": "the atmosphere will become unstable in some areas",
+   "exja": "大気の状態が不安定となる所がある"
+  },
+  {
+   "w": "landslide",
+   "pos": "名詞",
+   "ipa": "/ˈlændslaɪd/",
+   "ja": "土砂災害、地滑り",
+   "ex": "watch for and be on high alert for landslides",
+   "exja": "土砂災害に注意・警戒"
+  },
+  {
+   "w": "inundation of low-lying areas",
+   "pos": "名詞句",
+   "ipa": "/ˌɪnʌnˈdeɪʃən əv loʊˈlaɪɪŋ ˈɛriəz/",
+   "ja": "低い土地の浸水",
+   "ex": "inundation of low-lying areas, and river swelling",
+   "exja": "低い土地の浸水、河川の増水"
+  },
+  {
+   "w": "river swelling",
+   "pos": "名詞句",
+   "ipa": "/ˈrɪvər ˈswɛlɪŋ/",
+   "ja": "河川の増水",
+   "ex": "inundation of low-lying areas, and river swelling",
+   "exja": "低い土地の浸水、河川の増水"
+  },
+  {
+   "w": "tornado",
+   "pos": "名詞",
+   "ipa": "/tɔːrˈneɪdoʊ/",
+   "ja": "竜巻",
+   "ex": "watch for severe gusts including tornadoes",
+   "exja": "竜巻などの激しい突風に注意"
+  },
+  {
+   "w": "high waves",
+   "pos": "名詞句",
+   "ipa": "/haɪ weɪvz/",
+   "ja": "高波",
+   "ex": "watch for strong winds and high waves",
+   "exja": "強風や高波に注意"
+  },
+  {
+   "w": "rough seas",
+   "pos": "名詞句",
+   "ipa": "/rʌf siːz/",
+   "ja": "波が高くしける状態",
+   "ex": "causing high seas and rough conditions in some areas",
+   "exja": "波が高くなりしける所がある"
+  },
+  {
+   "w": "Asian dust",
+   "pos": "名詞句",
+   "ipa": "/ˈeɪʒən dʌst/",
+   "ja": "黄砂",
+   "ex": "forecasted lofting of Asian dust (kosa) around Mongolia",
+   "exja": "モンゴル周辺の黄砂の舞い上がり"
+  },
+  {
+   "w": "lofting",
+   "pos": "名詞",
+   "ipa": "/ˈlɔːftɪŋ/",
+   "ja": "舞い上がり、巻き上げ",
+   "ex": "the forecasted lofting of Asian dust (kosa) around Mongolia",
+   "exja": "モンゴル周辺の黄砂の舞い上がり"
+  },
+  {
+   "w": "synoptic scale",
+   "pos": "形容詞句",
+   "ipa": "/sɪˈnɑːptɪk skeɪl/",
+   "ja": "総観規模の",
+   "ex": "Base synoptic-scale assessments on GSM",
+   "exja": "総観場はGSMを基本"
+  },
+  {
+   "w": "precipitation distribution",
+   "pos": "名詞句",
+   "ipa": "/prɪˌsɪpɪˈteɪʃən ˌdɪstrəˈbjuːʃən/",
+   "ja": "降水分布",
+   "ex": "quantitative forecasts and precipitation distribution",
+   "exja": "量的予想や降水分布"
+  },
+  {
+   "w": "quantitative forecast",
+   "pos": "名詞句",
+   "ipa": "/ˈkwɑːntəteɪtɪv ˈfɔːrkæst/",
+   "ja": "量的予報",
+   "ex": "Quantitative forecasts may vary depending on future developments",
+   "exja": "量的な予報については、今後の状況により変化する場合があります"
+  },
+  {
+   "w": "upper-level cold air",
+   "pos": "名詞句",
+   "ipa": "/ˈʌpər ˈlɛvəl koʊld ɛr/",
+   "ja": "上層寒気",
+   "ex": "Due to upper-level cold air and warm, moist air in the lower layers",
+   "exja": "上層寒気と低気圧や前線に向かう下層暖湿気の影響で"
+  },
+  {
+   "w": "downpour",
+   "pos": "名詞",
+   "ipa": "/ˈdaʊnpɔːr/",
+   "ja": "激しい雨、土砂降り",
+   "ex": "heavy rain accompanied by thunderstorms and localized downpours",
+   "exja": "雷を伴う激しい雨が降って大雨となる"
+  },
+  {
+   "w": "overestimate",
+   "pos": "名詞",
+   "ipa": "/ˈoʊvərˈɛstɪmɪt/",
+   "ja": "過大評価、過大予想",
+   "ex": "is an overestimate compared to actual observations",
+   "exja": "実況と比べて予想が過大である"
+  },
+  {
+   "w": "Primorsky Krai",
+   "pos": "固有名詞",
+   "ipa": "/priːˈmɔːrski kraɪ/",
+   "ja": "沿海州、沿海地方",
+   "ex": "is moving eastward near Primorsky Krai",
+   "exja": "沿海州付近を東進し"
+  },
+  {
+   "w": "Sea of Okhotsk",
+   "pos": "固有名詞",
+   "ipa": "/siː əv oʊˈkɑːtsk/",
+   "ja": "オホーツク海",
+   "ex": "advance from near Primorsky Krai to the Sea of Okhotsk",
+   "exja": "沿海州付近からオホーツク海に進み"
+  },
+  {
+   "w": "Izu Islands",
+   "pos": "固有名詞",
+   "ipa": "/ˈiːzuː ˈaɪləndz/",
+   "ja": "伊豆諸島",
+   "ex": "the low will pass near the Izu Islands",
+   "exja": "低気圧が伊豆諸島付近を通って"
+  },
+  {
+   "w": "Nansei Islands",
+   "pos": "固有名詞",
+   "ipa": "/ˈnænseɪ ˈaɪləndz/",
+   "ja": "南西諸島",
+   "ex": "covering eastern to western Japan and the vicinity of the Nansei Islands",
+   "exja": "東～西日本と南西諸島付近を覆っている"
+  }
+ ],
+ "legend": [
+  [
+   "実況",
+   "解析時点の状況（analysis）"
+  ],
+  [
+   "FT12〜FT48",
+   "12〜48時間先の予想（forecast time）"
+  ],
+  [
+   "kt",
+   "ノット（knots）。風速の単位"
+  ],
+  [
+   "前線記号の黒塗り",
+   "FT24"
+  ],
+  [
+   "前線記号の白抜き",
+   "FT48"
+  ]
+ ],
+ "ja_mismatch": [
+  "（注）量的な予報については、今後の状況により変化する場合があ"
+ ],
+ "times": [
+  0.0,
+  3.18,
+  13.36,
+  40.43,
+  50.99,
+  57.2,
+  69.6,
+  75.58,
+  81.94,
+  96.76,
+  107.13,
+  115.12,
+  135.04,
+  148.83,
+  162.82,
+  172.53,
+  180.68,
+  185.38,
+  206.01,
+  217.49,
+  227.24,
+  238.91,
+  252.63,
+  258.44,
+  268.17,
+  277.83,
+  283.66,
+  294.05,
+  296.67,
+  306.79,
+  314.02,
+  318.04,
+  320.62
+ ],
+ "vtimes": [
+  [
+   0.0,
+   6.92
+  ],
+  [
+   7.22,
+   12.76
+  ],
+  [
+   13.06,
+   22.49
+  ],
+  [
+   22.79,
+   28.54
+  ],
+  [
+   28.84,
+   34.48
+  ],
+  [
+   34.78,
+   40.15
+  ],
+  [
+   40.45,
+   45.56
+  ],
+  [
+   45.86,
+   50.03
+  ],
+  [
+   50.33,
+   56.09
+  ],
+  [
+   56.39,
+   61.18
+  ],
+  [
+   61.48,
+   65.44
+  ],
+  [
+   65.74,
+   69.48
+  ],
+  [
+   69.78,
+   74.48
+  ],
+  [
+   74.78,
+   80.4
+  ],
+  [
+   80.7,
+   86.2
+  ],
+  [
+   86.5,
+   91.11
+  ],
+  [
+   91.41,
+   97.08
+  ],
+  [
+   97.38,
+   103.12
+  ],
+  [
+   103.42,
+   109.34
+  ],
+  [
+   109.64,
+   115.11
+  ],
+  [
+   115.41,
+   120.22
+  ],
+  [
+   120.52,
+   124.69
+  ],
+  [
+   124.99,
+   130.06
+  ],
+  [
+   130.36,
+   133.99
+  ],
+  [
+   134.29,
+   140.4
+  ]
+ ]
+}
