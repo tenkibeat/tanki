@@ -1,0 +1,500 @@
+{
+ "id": "20261125-1540",
+ "issued": "2026-11-25T15:40:00+09:00",
+ "no": "1",
+ "title_en": "JMA Short-Range Forecast Discussion — issued 15:40 JST, 25 November 2026",
+ "by": "Gemini（gemini-3.8-flash）",
+ "sections": [
+  {
+   "heading": true,
+   "ja": "１．実況上の着目点",
+   "en": [
+    "1. Key Points in the Current Weather Conditions"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "① 日本付近は西高東低の気圧配置となっており、全国的に風が強く、海はしけている。寒気流入をもたらしたトラフが抜けたのに伴い西から暖気移流が卓越してきており、黄海から日本海西部にかけて筋状雲の形状や走向が変化。",
+   "en": [
+    "(1) A winter-type pressure pattern with high pressure to the west and low to the east prevails around Japan, resulting in strong winds nationwide and rough seas.",
+    "As the trough that brought cold air advection has passed, warm air advection has become predominant from the west, causing changes in the shape and orientation of cloud streets from the Yellow Sea to the western Sea of Japan."
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "② 黄砂予測モデルで28 日に本邦への飛来が予想されているが、発生源のモンゴル周辺の黄砂の舞い上がりは、衛星では認められない。",
+   "en": [
+    "(2) Although an Asian dust forecast model predicts that dust will reach Japan on the 28th, satellite observations show no evidence of dust lifting in its source region around Mongolia."
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "２．主要じょう乱の予想根拠と防災事項を含む解説上の留意点",
+   "en": [
+    "2. Basis for Forecasting Major Disturbances and Discussion Points Including Disaster Prevention Considerations"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "① 西高東低の気圧配置は25 日夜には緩み、華中に中心をもつ高気圧が移動性となって26 日にかけて本州の南海上を東に移動し、西・東日本ではこれに覆われてくる。一方、発達した低気圧がカムチャツカの東～オホーツク海に停滞するとともに、500hPa 5100～5400mのトラフに対応して、中国東北区の低気圧が26 日にはオホーツク海を東進し、南西に連なる気圧の谷が北日本を通過する。これに伴い、北日本では西よりの風が26 日に再び強まり、27 日にかけて続く。また、気圧の谷の南側には1 項①の日本海の対流雲を起源とする湿った空気が流入し、トラフに伴い上空の寒気の影響が加わって大気の状態が非常に不安定となる所がある。全国的には26 日にかけて、北日本と北陸地方では27 日にかけて強風、風雪、高波に注意。北日本では25 日は、引き続き大雪による交通障害、着雪に注意。北陸地方では25 日は土砂災害に注意。北・東日本では26 日にかけて落雷、突風、降ひょうに注意し、北陸地方では25 日は、北日本では26 日は竜巻などの激しい突風にも注意。",
+   "en": [
+    "(1) The winter-type pressure pattern will ease on the night of the 25th, and a high-pressure system centered over Central China will become migratory, tracking eastward over the waters south of Honshu through the 26th and covering western and eastern Japan.",
+    "Meanwhile, a developed low will stall from east of Kamchatka to the Sea of Okhotsk, and corresponding to a 500 hPa trough at 5,100–5,400 m, a low-pressure system over Northeast China will move eastward over the Sea of Okhotsk on the 26th, with an associated trough of low pressure extending southwestward and passing over northern Japan.",
+    "As a result, westerly winds will strengthen again over northern Japan on the 26th and persist through the 27th.",
+    "In addition, moist air originating from the convective clouds over the Sea of Japan mentioned in Section 1 (1) will flow into the southern side of the trough of low pressure, which, combined with the influence of upper-level cold air accompanying the trough, will make the atmosphere extremely unstable in some areas.",
+    "Watch for strong winds, snowstorms, and high waves nationwide through the 26th, and in northern Japan and the Hokuriku region through the 27th.",
+    "In northern Japan on the 25th, continue to watch for traffic disruptions due to heavy snow, as well as snow accretion.",
+    "In the Hokuriku region on the 25th, watch for landslides.",
+    "In northern and eastern Japan through the 26th, watch for lightning, wind gusts, and hail; also watch for severe gusts including tornadoes in the Hokuriku region on the 25th and in northern Japan on the 26th."
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "② 500hPa 5700～5820mのトラフが華中～華南で深まっているのに伴い、トラフ前面で強化される強風軸に伴う雲バンドが次第に形成され、26 日朝には沖縄の南で前線が顕在化して、26 日夜には沖縄近海に、27 日には日本の南にのび出してくる。この前線近傍や500hPa5760m付近の強風軸に対応して北緯30 度付近に生じる気圧の谷では、下層暖湿気や上層正渦度の影響で大気の状態が不安定となり、雷を伴って激しい雨の降る所がある。沖縄地方では26～27 日は、土砂災害、低い土地の浸水、河川の増水に注意・警戒。南西諸島では26～27 日は、落雷、突風、急な強い雨に注意。沖縄地方では27 日は強風、うねりを伴う高波にも注意。このほか、日本のはるか東に移動した高気圧西側を北上する下層暖湿気や27 日夜には沿海州に進んでくる低気圧に向かう下層暖湿気の影響で、西～北日本でも局地的に対流雲が発達する可能性がある。今後の予想変化に留意。",
+   "en": [
+    "(2) As a 500 hPa trough at 5,700–5,820 m deepens from Central to Southern China, a cloud band associated with the strong-wind axis strengthening ahead of the trough will gradually form, a stationary front will materialize south of Okinawa on the morning of the 26th, and it will extend to waters near Okinawa by the night of the 26th and to the south of Japan on the 27th.",
+    "Near this front and within the trough of low pressure forming around 30°N corresponding to the strong-wind axis near 500 hPa 5,760 m, the atmosphere will become unstable due to the influence of warm, moist air in the lower layers and upper-level positive vorticity, bringing localized heavy rainfall accompanied by thunder.",
+    "In the Okinawa region on the 26th and 27th, be alert or on high alert for landslides, inundation of low-lying areas, and river swelling.",
+    "In the Nansei Islands on the 26th and 27th, watch for lightning, gusts, and sudden heavy rainfall.",
+    "In the Okinawa region on the 27th, also watch for strong winds and high waves with swells.",
+    "In addition, convective clouds may locally develop over western to northern Japan due to warm, moist air in the lower layers moving northward along the western flank of the anticyclone that has shifted far east of Japan, as well as low-level warm, moist air heading toward a low approaching Primorsky Krai on the night of the 27th.",
+    "Pay close attention to future changes in the forecast."
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "３．数値予報資料解釈上の留意点",
+   "en": [
+    "3. Points to Note in Interpreting Numerical Weather Prediction Data"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "総観場はGSMを基本、量的予想や降水分布はMSMやLFMも参考。",
+   "en": [
+    "The synoptic field is primarily based on the GSM; also consult the MSM and LFM for quantitative forecasts and precipitation distribution."
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "４．防災関連事項",
+   "en": [
+    "4. Disaster Prevention Considerations"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "[量的予報等] ① 雨量(18 時からの 24 時間)：沖縄 100mm。② 降雪量（18 時からの24 時間）：北海道30cm。③ 波浪(明日まで)：全国的に4～3m。",
+   "en": [
+    "[Quantitative Forecasts, etc.] (1) Rainfall (24 hours from 18:00 JST): Okinawa 100 mm. (2) Snowfall (24 hours from 18:00 JST): Hokkaido 30 cm. (3) Wave heights (through tomorrow): 4 to 3 m nationwide."
+   ]
+  },
+  {
+   "heading": true,
+   "ja": "５．全般気象解説情報発表の有無",
+   "en": [
+    "5. Issuance Status of General Meteorological Information"
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "発表の予定はない。",
+   "en": [
+    "There are no plans to issue this information."
+   ]
+  },
+  {
+   "heading": false,
+   "ja": "（注）量的な予報については、今後の状況により変化する場合がありますので、注意報・警報や全般気象情報等に記述する数値を利用願います。",
+   "en": [
+    "(Note) Quantitative forecasts may change depending on future developments; please refer to the numerical values stated in advisories, warnings, and General Meteorological Information bulletins."
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "w": "winter-type pressure pattern",
+   "pos": "名詞句",
+   "ipa": "/ˈwɪntər taɪp ˈprɛʃər ˈpætərn/",
+   "ja": "西高東低の気圧配置",
+   "ex": "A winter-type pressure pattern with high pressure to the west and low to the east prevails around Japan.",
+   "exja": "日本付近は西高東低の気圧配置となっており。"
+  },
+  {
+   "w": "rough seas",
+   "pos": "名詞句",
+   "ipa": "/rʌf siːz/",
+   "ja": "波が高い状態、しけ",
+   "ex": "resulting in strong winds nationwide and rough seas.",
+   "exja": "全国的に風が強く、海はしけている。"
+  },
+  {
+   "w": "cold air advection",
+   "pos": "名詞句",
+   "ipa": "/koʊld ɛr ædˈvɛkʃən/",
+   "ja": "寒気移流（寒気流入）",
+   "ex": "the trough that brought cold air advection has passed",
+   "exja": "寒気流入をもたらしたトラフが抜けた"
+  },
+  {
+   "w": "warm air advection",
+   "pos": "名詞句",
+   "ipa": "/wɔːrm ɛr ædˈvɛkʃən/",
+   "ja": "暖気移流",
+   "ex": "warm air advection has become predominant from the west",
+   "exja": "西から暖気移流が卓越してきており"
+  },
+  {
+   "w": "predominant",
+   "pos": "形容詞",
+   "ipa": "/prɪˈdɑːmɪnənt/",
+   "ja": "卓越した、優勢な",
+   "ex": "warm air advection has become predominant from the west",
+   "exja": "西から暖気移流が卓越してきており"
+  },
+  {
+   "w": "cloud streets",
+   "pos": "名詞句",
+   "ipa": "/klaʊd striːts/",
+   "ja": "筋状雲",
+   "ex": "causing changes in the shape and orientation of cloud streets",
+   "exja": "筋状雲の形状や走向が変化。"
+  },
+  {
+   "w": "orientation",
+   "pos": "名詞",
+   "ipa": "/ˌɔːriənˈteɪʃən/",
+   "ja": "走向、向き",
+   "ex": "the shape and orientation of cloud streets",
+   "exja": "筋状雲の形状や走向"
+  },
+  {
+   "w": "Asian dust",
+   "pos": "名詞句",
+   "ipa": "/ˈeɪʒən dʌst/",
+   "ja": "黄砂",
+   "ex": "Although an Asian dust forecast model predicts that dust will reach Japan",
+   "exja": "黄砂予測モデルで本邦への飛来が予想されているが"
+  },
+  {
+   "w": "source region",
+   "pos": "名詞句",
+   "ipa": "/sɔːrs ˈriːdʒən/",
+   "ja": "発生源",
+   "ex": "in its source region around Mongolia",
+   "exja": "発生源のモンゴル周辺"
+  },
+  {
+   "w": "lifting",
+   "pos": "名詞",
+   "ipa": "/ˈlɪftɪŋ/",
+   "ja": "舞い上がり、巻き上げ",
+   "ex": "satellite observations show no evidence of dust lifting",
+   "exja": "黄砂の舞い上がりは、衛星では認められない。"
+  },
+  {
+   "w": "migratory anticyclone",
+   "pos": "名詞句",
+   "ipa": "/ˈmaɪɡrətɔːri ˌæntiˈsaɪkloʊn/",
+   "ja": "移動性高気圧",
+   "ex": "a high-pressure system centered over Central China will become migratory",
+   "exja": "華中に中心をもつ高気圧が移動性となって"
+  },
+  {
+   "w": "stall",
+   "pos": "動詞",
+   "ipa": "/stɔːl/",
+   "ja": "停滞する",
+   "ex": "a developed low will stall from east of Kamchatka to the Sea of Okhotsk",
+   "exja": "発達した低気圧がカムチャツカの東～オホーツク海に停滞するとともに"
+  },
+  {
+   "w": "trough of low pressure",
+   "pos": "名詞句",
+   "ipa": "/trɔːf əv loʊ ˈprɛʃər/",
+   "ja": "気圧の谷",
+   "ex": "with an associated trough of low pressure extending southwestward",
+   "exja": "南西に連なる気圧の谷が"
+  },
+  {
+   "w": "convective cloud",
+   "pos": "名詞句",
+   "ipa": "/kənˈvɛktɪv klaʊd/",
+   "ja": "対流雲",
+   "ex": "moist air originating from the convective clouds over the Sea of Japan",
+   "exja": "日本海の対流雲を起源とする湿った空気"
+  },
+  {
+   "w": "snow accretion",
+   "pos": "名詞句",
+   "ipa": "/snoʊ əˈkriːʃən/",
+   "ja": "着雪",
+   "ex": "continue to watch for traffic disruptions due to heavy snow, as well as snow accretion.",
+   "exja": "引き続き大雪による交通障害、着雪に注意。"
+  },
+  {
+   "w": "landslide",
+   "pos": "名詞",
+   "ipa": "/ˈlændslaɪd/",
+   "ja": "土砂災害",
+   "ex": "watch for landslides",
+   "exja": "土砂災害に注意"
+  },
+  {
+   "w": "hail",
+   "pos": "名詞",
+   "ipa": "/heɪl/",
+   "ja": "降ひょう",
+   "ex": "watch for lightning, wind gusts, and hail",
+   "exja": "落雷、突風、降ひょうに注意し"
+  },
+  {
+   "w": "tornado",
+   "pos": "名詞",
+   "ipa": "/tɔːrˈneɪdoʊ/",
+   "ja": "竜巻",
+   "ex": "watch for severe gusts including tornadoes",
+   "exja": "竜巻などの激しい突風にも注意。"
+  },
+  {
+   "w": "deepen",
+   "pos": "動詞",
+   "ipa": "/ˈdiːpən/",
+   "ja": "（気圧の谷などが）深まる",
+   "ex": "As a 500 hPa trough at 5,700–5,820 m deepens from Central to Southern China",
+   "exja": "500hPa 5700～5820mのトラフが華中～華南で深まっているのに伴い"
+  },
+  {
+   "w": "strong-wind axis",
+   "pos": "名詞句",
+   "ipa": "/strɔːŋ wɪnd ˈæksɪs/",
+   "ja": "強風軸",
+   "ex": "associated with the strong-wind axis strengthening ahead of the trough",
+   "exja": "トラフ前面で強化される強風軸に伴う"
+  },
+  {
+   "w": "cloud band",
+   "pos": "名詞句",
+   "ipa": "/klaʊd bænd/",
+   "ja": "雲バンド",
+   "ex": "a cloud band associated with the strong-wind axis",
+   "exja": "強風軸に伴う雲バンド"
+  },
+  {
+   "w": "materialize",
+   "pos": "動詞",
+   "ipa": "/məˈtɪriəlaɪz/",
+   "ja": "顕在化する",
+   "ex": "a stationary front will materialize south of Okinawa",
+   "exja": "沖縄の南で前線が顕在化して"
+  },
+  {
+   "w": "positive vorticity",
+   "pos": "名詞句",
+   "ipa": "/ˈpɑːzətɪv vɔːrˈtɪsəti/",
+   "ja": "正渦度",
+   "ex": "due to the influence of warm, moist air in the lower layers and upper-level positive vorticity",
+   "exja": "下層暖湿気や上層正渦度の影響で"
+  },
+  {
+   "w": "inundation of low-lying areas",
+   "pos": "名詞句",
+   "ipa": "/ˌɪnʌnˈdeɪʃən əv loʊ ˈlaɪɪŋ ˈɛriəz/",
+   "ja": "低い土地の浸水",
+   "ex": "be alert or on high alert for landslides, inundation of low-lying areas, and river swelling.",
+   "exja": "土砂災害、低い土地の浸水、河川の増水に注意・警戒。"
+  },
+  {
+   "w": "river swelling",
+   "pos": "名詞句",
+   "ipa": "/ˈrɪvər ˈswɛlɪŋ/",
+   "ja": "河川の増水",
+   "ex": "inundation of low-lying areas, and river swelling",
+   "exja": "低い土地の浸水、河川の増水"
+  },
+  {
+   "w": "swell",
+   "pos": "名詞",
+   "ipa": "/swɛl/",
+   "ja": "うねり",
+   "ex": "also watch for strong winds and high waves with swells.",
+   "exja": "強風、うねりを伴う高波にも注意。"
+  },
+  {
+   "w": "synoptic field",
+   "pos": "名詞句",
+   "ipa": "/sɪˈnɑːptɪk fiːld/",
+   "ja": "総観場",
+   "ex": "The synoptic field is primarily based on the GSM",
+   "exja": "総観場はGSMを基本"
+  }
+ ],
+ "legend": [
+  [
+   "実況",
+   "解析時点の状況（analysis）"
+  ],
+  [
+   "FT12〜FT48",
+   "12〜48時間先の予想（forecast time）"
+  ],
+  [
+   "kt",
+   "ノット（knots）。風速の単位"
+  ],
+  [
+   "破線",
+   "地上のシアーライン"
+  ],
+  [
+   "前線記号の黒塗り",
+   "FT24"
+  ],
+  [
+   "前線記号の白抜き",
+   "FT48"
+  ]
+ ],
+ "ja_mismatch": [
+  "（注）量的な予報については、今後の状況により変化する場合があ"
+ ],
+ "times": [
+  0.0,
+  3.1,
+  13.89,
+  28.7,
+  42.1,
+  50.29,
+  66.47,
+  91.88,
+  99.75,
+  120.59,
+  131.01,
+  139.24,
+  143.68,
+  158.75,
+  187.19,
+  212.08,
+  222.73,
+  229.96,
+  236.49,
+  259.07,
+  262.78,
+  267.54,
+  278.27,
+  281.41,
+  302.49,
+  307.23,
+  310.09
+ ],
+ "vtimes": [
+  [
+   0.0,
+   8.16
+  ],
+  [
+   8.46,
+   13.14
+  ],
+  [
+   13.44,
+   17.97
+  ],
+  [
+   18.27,
+   23.51
+  ],
+  [
+   23.81,
+   28.75
+  ],
+  [
+   29.05,
+   34.43
+  ],
+  [
+   34.73,
+   38.67
+  ],
+  [
+   38.97,
+   45.23
+  ],
+  [
+   45.53,
+   49.35
+  ],
+  [
+   49.65,
+   54.8
+  ],
+  [
+   55.1,
+   61.92
+  ],
+  [
+   62.22,
+   67.88
+  ],
+  [
+   68.18,
+   74.16
+  ],
+  [
+   74.46,
+   80.66
+  ],
+  [
+   80.96,
+   87.97
+  ],
+  [
+   88.27,
+   91.18
+  ],
+  [
+   91.48,
+   95.18
+  ],
+  [
+   95.48,
+   99.43
+  ],
+  [
+   99.73,
+   109.75
+  ],
+  [
+   110.05,
+   115.95
+  ],
+  [
+   116.25,
+   120.93
+  ],
+  [
+   121.23,
+   126.08
+  ],
+  [
+   126.38,
+   134.11
+  ],
+  [
+   134.41,
+   143.08
+  ],
+  [
+   143.38,
+   148.17
+  ],
+  [
+   148.47,
+   153.13
+  ],
+  [
+   153.43,
+   158.45
+  ]
+ ]
+}
