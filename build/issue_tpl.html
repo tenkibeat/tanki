@@ -68,7 +68,7 @@ input[type=search]{width:100%;font:16px "Noto Sans JP",sans-serif;min-height:44p
 .bi{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:8px}
 .bb{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center}
 .play-m{width:54px;height:54px;background:var(--red);border-color:var(--red);color:#fff}
-.prog{flex:1;font:500 13px Archivo,"Noto Sans JP",sans-serif;color:var(--mute);display:flex;flex-direction:column;gap:4px}
+.prog{flex:1;font:500 13px Archivo,"Noto Sans JP",sans-serif;color:var(--mute);display:flex;flex-direction:column;gap:4px}#pt{white-space:nowrap}#pt b{color:var(--ink);font-weight:600}.now{max-width:720px;margin:0 auto 6px;font:14px/1.4 Archivo,sans-serif;color:var(--blue);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:1.4em}.now:empty{display:none}.sep{width:1px;align-self:stretch;background:var(--line);margin:0 2px}.here{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(110px + env(safe-area-inset-bottom));z-index:7;font:600 14px "Noto Sans JP",Archivo,sans-serif;min-height:40px;padding:0 16px;border-radius:20px;border:0;background:var(--ink);color:var(--bg);box-shadow:0 4px 14px rgba(0,0,0,.2)}.here[hidden]{display:none}
 .track{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
 .track i{display:block;height:100%;width:0;background:var(--red)}
 select{font:500 15px Archivo,sans-serif;height:44px;border-radius:22px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 8px}
@@ -92,6 +92,7 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 <button class="pill" data-m="both" aria-pressed="true">日英どちらも</button>
 <button class="pill" data-m="en" aria-pressed="false">英語だけ</button>
 <button class="pill" data-m="ja" aria-pressed="false">日本語だけ</button>
+<button class="pill" id="autoB" aria-pressed="false">自動スクロール</button>
 </div>
 <main id="body"></main>
 <p class="note">原文：%%TJA%%（<a href="%%SRC%%">気象庁</a>）。英訳・単語：%%BY%%。音声：Kokoro（af_heart）。<span id="noaudio"></span></p>
@@ -112,7 +113,8 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 <div id="vlist"></div>
 </section>
 </div>
-<div class="bar"><div class="bi">
+<button class="here" id="here" hidden></button>
+<div class="bar"><div class="now" id="now" aria-live="off"></div><div class="bi">
 <button class="bb" id="prev" aria-label="前の文"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
 <button class="bb play-m" id="play" aria-label="再生"><svg id="pi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></button>
 <button class="bb" id="next" aria-label="次の文"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
@@ -136,13 +138,13 @@ D.secs.forEach(x=>{
 });
 $('body').innerHTML=h;
 $('body').addEventListener('click',e=>{const b=e.target.closest('.rv');if(!b)return;const p=b.classList.contains('for-ja')?b.previousElementSibling:b.previousElementSibling;p.classList.toggle('show');b.textContent=p.classList.contains('show')?'隠す':(b.classList.contains('for-ja')?'和訳を見る':'英訳を見る')});
-const setMode=m=>{document.body.className='m-'+m;document.querySelectorAll('#modes .pill').forEach(p=>p.setAttribute('aria-pressed',p.dataset.m===m));document.querySelectorAll('.show').forEach(x=>x.classList.remove('show'));document.querySelectorAll('.rv').forEach(b=>b.textContent=b.classList.contains('for-ja')?'和訳を見る':'英訳を見る');ls.set('tk_mode',m)};
-document.querySelectorAll('#modes .pill').forEach(p=>p.onclick=()=>setMode(p.dataset.m));
+const setMode=m=>{document.body.className='m-'+m;document.querySelectorAll('#modes .pill[data-m]').forEach(p=>p.setAttribute('aria-pressed',p.dataset.m===m));document.querySelectorAll('.show').forEach(x=>x.classList.remove('show'));document.querySelectorAll('.rv').forEach(b=>b.textContent=b.classList.contains('for-ja')?'和訳を見る':'英訳を見る');ls.set('tk_mode',m)};
+document.querySelectorAll('#modes .pill[data-m]').forEach(p=>p.onclick=()=>setMode(p.dataset.m));
 setMode(ls.get('tk_mode','both'));
 /* tabs */
 const pos={read:0,chart:0,vocab:0};let tab='read';
 const show=t=>{if(t===tab)return;pos[tab]=scrollY;tab=t;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+t));
-  if(t==='read'&&!A.paused){spans[cur]&&spans[cur].scrollIntoView({block:'center'})}else scrollTo(0,pos[t])};
+  if(t==='read'&&!A.paused&&auto){spans[cur]&&spans[cur].scrollIntoView({block:'center'})}else scrollTo(0,pos[t]);where()};
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(b.dataset.t));
 $('toRead').onclick=()=>{show('read');spans[cur]&&spans[cur].scrollIntoView({block:'center'})};
 /* chart */
@@ -150,15 +152,21 @@ $('leg').innerHTML=D.legend.map(l=>`<li><b>${esc(l[0])}</b><span>${esc(l[1])}</s
 $('zoomB').onclick=e=>{const on=$('chartBox').classList.toggle('big');e.currentTarget.setAttribute('aria-pressed',on)};
 /* main audio */
 const spans=[...document.querySelectorAll('.s')];let cur=0,last=-1;
+let auto=!!ls.get('tk_auto',false);$('autoB').setAttribute('aria-pressed',auto);
+$('autoB').onclick=e=>{auto=!auto;e.currentTarget.setAttribute('aria-pressed',auto);ls.set('tk_auto',auto);if(auto&&!A.paused&&spans[last])spans[last].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});where()};
 let rate=+ls.get('tk_rate',1);$('rate').value=String(rate);A.playbackRate=rate;
 if(!HAS){$('pt').textContent='この号の音声は保存期間（1か月）を過ぎました';['play','prev','next','rate'].forEach(i=>$(i).disabled=true)}
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const mark=i=>{if(i===last)return;last=i;spans.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));if(tab==='read'&&!A.paused&&spans[i])spans[i].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});$('pt').textContent=`${i+1} / ${S.length}`};
+const mark=i=>{if(i===last)return;last=i;spans.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));if(auto&&tab==='read'&&!A.paused&&spans[i])spans[i].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});$('pt').innerHTML=`<b>${i+1} / ${S.length}</b>`;$('now').textContent=S[i];where()};
+const where=()=>{const h=$('here');const el=spans[last];if(tab!=='read'||last<0||!el||(A.paused&&!A.currentTime)){h.hidden=true;return}const r=el.getBoundingClientRect(),top=document.querySelector('header').getBoundingClientRect().bottom,bot=document.querySelector('.bar').getBoundingClientRect().top;if(r.bottom<top+4){h.textContent=`↑ 読み上げ中（${last+1}/${S.length}）`;h.hidden=false}else if(r.top>bot-4){h.textContent=`↓ 読み上げ中（${last+1}/${S.length}）`;h.hidden=false}else h.hidden=true};
+let wq=0;addEventListener('scroll',()=>{if(wq)return;wq=requestAnimationFrame(()=>{wq=0;where()})},{passive:true});addEventListener('resize',where);
+$('here').onclick=()=>{spans[last]&&spans[last].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})};
 const idx=t=>{let i=0;while(i+1<T.length&&T[i+1]<=t+0.05)i++;return i};
-A.ontimeupdate=()=>{cur=idx(A.currentTime);mark(cur);$('pb').style.width=(A.duration?A.currentTime/A.duration*100:0)+'%'};
+A.ontimeupdate=()=>{if(A.seeking)return;cur=idx(A.currentTime);mark(cur);$('pb').style.width=(A.duration?A.currentTime/A.duration*100:0)+'%'};
 const icon=p=>{$('pi').innerHTML=p?'<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>':'<path d="M7 4v16l13-8z"/>';$('play').setAttribute('aria-label',p?'一時停止':'再生')};
 A.onplay=()=>{icon(true);VA.pause()};A.onpause=A.onended=()=>icon(false);
-const go=i=>{i=Math.max(0,Math.min(S.length-1,i));A.currentTime=T[i];cur=i;last=-1;mark(i);A.play().catch(()=>{})};
+const seek=t=>{if(A.readyState>=1)A.currentTime=t;else A.addEventListener('loadedmetadata',()=>{A.currentTime=t},{once:true})};
+const go=i=>{i=Math.max(0,Math.min(S.length-1,i));seek(T[i]);cur=i;last=-1;mark(i);A.play().catch(()=>{})};
 $('play').onclick=()=>A.paused?A.play().catch(()=>{}):A.pause();
 $('prev').onclick=()=>go(cur-1);$('next').onclick=()=>go(cur+1);
 spans.forEach(s=>s.onclick=()=>go(+s.dataset.i));
