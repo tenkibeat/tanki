@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>短期予報解説 11/28 03:40 英語</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm forecast-desk study sheet
+   IDEA: JMA forecast discussion you can listen to while flipping to the chart
+   PICTURE: the surface chart tab; the reading tab is the working thing
+   COLOUR and TYPE: white sheet, ink, sea blue English, warning red for the live sentence; Archivo + Noto Sans JP
+   LAYOUT: sticky title + tabs on top, one reading column, sticky player at bottom */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#0f1217);--ink:light-dark(#10131a,#e8ebf0);--mute:light-dark(#5b6270,#9aa3b2);--line:light-dark(#e3e6eb,#252b35);--blue:light-dark(#0b4f8a,#7fb6ea);--red:light-dark(#c1121f,#ff6b72);--hl:light-dark(#fff1c2,#3a3112);--card:light-dark(#f5f7fa,#171c24);--ok:light-dark(#2f7a4a,#6fd39a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Noto Sans JP",system-ui,sans-serif;overflow-x:clip;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.wrap{max-width:720px;margin:0 auto;padding:0 max(4vw,16px)}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-top:5px solid var(--ink);border-bottom:1px solid var(--line)}
+.ht{padding:8px 0 0}.top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.arc{flex:none;font:600 14px "Noto Sans JP",sans-serif;color:var(--blue);text-decoration:none;padding:8px 0}
+h1{font:800 18px/1.25 Archivo,"Noto Sans JP",sans-serif;font-stretch:105%;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub{color:var(--mute);font-size:13px;margin:2px 0 0}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:6px}
+.tab{all:unset;cursor:pointer;text-align:center;font:600 15px "Noto Sans JP",sans-serif;color:var(--mute);min-height:40px;line-height:40px;border-bottom:3px solid transparent}
+.tab[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red)}
+.tab:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.panel{display:none;padding-top:14px}.panel.on{display:block}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}.mbar{display:flex;align-items:center;gap:6px;padding:6px 0 7px}.mbar[hidden]{display:none}.seg{flex:1;display:grid;grid-template-columns:1.35fr 1fr 1fr;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card)}.seg button{all:unset;cursor:pointer;text-align:center;font:500 12.5px/30px "Noto Sans JP",sans-serif;color:var(--mute);white-space:nowrap}.seg button+button{border-left:1px solid var(--line)}.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}.auto{flex:none;height:32px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--mute);font:500 12px "Noto Sans JP",sans-serif;white-space:nowrap}.auto[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}.seg button:focus-visible,.auto:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.pill{font:500 14px "Noto Sans JP",sans-serif;min-height:40px;padding:0 14px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.pill[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+h2{font:700 17px/1.45 "Noto Sans JP",sans-serif;margin:26px 0 4px;padding-top:12px;border-top:2px solid var(--ink)}
+.h-en{display:block;font:600 15px/1.4 Archivo,sans-serif;color:var(--blue);margin-bottom:4px}
+.ja{margin:14px 0 4px}
+.en{margin:0 0 6px;font:17px/1.7 Archivo,sans-serif;color:var(--blue)}
+.s{cursor:pointer;border-radius:3px;transition:background .2s}
+.s.on{background:var(--hl);color:var(--ink);box-shadow:-3px 0 0 var(--red)}
+.rv{font:500 13px "Noto Sans JP",sans-serif;min-height:36px;padding:0 12px;border-radius:18px;border:1px dashed var(--line);background:none;color:var(--blue);margin:2px 0 8px;display:none}
+body.m-en .ja:not(.show),body.m-ja .en:not(.show),body.m-ja .h-en:not(.show){display:none}
+body.m-en .rv.for-ja,body.m-ja .rv.for-en{display:inline-block}
+.note{font-size:13px;color:var(--mute);margin:26px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+.note a{color:var(--blue)}
+.chart{border:1px solid var(--line);border-radius:6px;overflow:auto;background:#fff;-webkit-overflow-scrolling:touch}
+.chart img{display:block;width:100%;height:auto}
+.chart.big img{width:220%;max-width:none}
+.leg{list-style:none;padding:0;margin:14px 0 0}
+.leg li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.leg b{font:700 15px Archivo,"Noto Sans JP",sans-serif}
+.back{margin-top:16px}
+input[type=search]{width:100%;font:16px "Noto Sans JP",sans-serif;min-height:44px;padding:0 14px;border-radius:22px;border:1px solid var(--line);background:var(--card);color:var(--ink);margin-bottom:10px}
+.cnt{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--mute);margin:6px 0 4px}
+.cnt button{all:unset;cursor:pointer;color:var(--blue);font-size:13px;padding:8px 0}
+.v{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.v.done .vw{color:var(--ok)}
+.vw{font:700 18px/1.3 Archivo,sans-serif;color:var(--blue)}
+.vm{font-size:13px;color:var(--mute)}
+.vb{grid-column:1/-1}
+.vb.hide{display:none}
+.vj{font-size:15px}.vx{font:15px/1.5 Archivo,sans-serif;margin-top:2px}.vxj{font-size:13px;color:var(--mute)}
+.vbtn{display:flex;gap:8px;grid-row:1/3;grid-column:2;align-items:start}
+.say,.got{height:44px;border-radius:22px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px "Noto Sans JP",sans-serif}
+.say{width:44px;display:grid;place-items:center;color:var(--blue)}
+.say.play{background:var(--blue);color:var(--bg);border-color:var(--blue)}
+.got{padding:0 12px}
+.v.done .got{background:var(--ok);border-color:var(--ok);color:var(--bg)}
+.flash .v{cursor:pointer}
+.empty{color:var(--mute);padding:20px 0;text-align:center}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--bg);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08);padding:8px max(4vw,12px) calc(8px + env(safe-area-inset-bottom))}
+.bi{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:8px}
+.bb{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center}
+.play-m{width:54px;height:54px;background:var(--red);border-color:var(--red);color:#fff}
+.prog{flex:1;font:500 13px Archivo,"Noto Sans JP",sans-serif;color:var(--mute);display:flex;flex-direction:column;gap:4px}#pt{white-space:nowrap}#pt b{color:var(--ink);font-weight:600}.now{position:relative;max-width:720px;margin:0 auto 6px;font:15px/22px Archivo,sans-serif;height:22px;overflow:hidden}.now:empty{display:none}.now .tx{white-space:normal}.now i{font-style:normal;color:var(--blue);opacity:.75}.now i.d{color:var(--ink);opacity:1}.jp{border-radius:3px;transition:background .2s}.jp.jon{background:light-dark(#e3eef9,#16283b);box-shadow:0 0 0 2px light-dark(#e3eef9,#16283b)}.sep{width:1px;align-self:stretch;background:var(--line);margin:0 2px}.here{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(110px + env(safe-area-inset-bottom));z-index:7;font:600 14px "Noto Sans JP",Archivo,sans-serif;min-height:40px;padding:0 16px;border-radius:20px;border:0;background:var(--ink);color:var(--bg);box-shadow:0 4px 14px rgba(0,0,0,.2)}.here[hidden]{display:none}
+.track{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--red)}
+select{font:500 15px Archivo,sans-serif;height:44px;border-radius:22px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 8px}
+button{cursor:pointer}button:disabled{opacity:.35;cursor:default}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.s{transition:none}}
+</style>
+</head>
+<body class="m-both">
+<header><div class="wrap">
+<div class="ht"><div class="top"><h1>短期予報解説　11/28 03:40</h1><a class="arc" href="../../archive.html">バックナンバー</a></div></div>
+<nav class="tabs" role="tablist">
+<button class="tab" role="tab" data-t="read" aria-selected="true">対訳</button>
+<button class="tab" role="tab" data-t="chart" aria-selected="false">解説図</button>
+<button class="tab" role="tab" data-t="vocab" aria-selected="false" id="vtab">単語帳</button>
+</nav>
+<div class="mbar" id="mbar">
+<div class="seg" id="modes" role="group" aria-label="表示">
+<button data-m="both" aria-pressed="true">日英どちらも</button><button data-m="en" aria-pressed="false">英語</button><button data-m="ja" aria-pressed="false">日本語</button>
+</div>
+<button class="auto" id="autoB" aria-pressed="false">自動スクロール</button>
+</div>
+</div></header>
+<div class="wrap">
+<section class="panel on" id="p-read">
+<p class="sub">JMA Short-Range Forecast Discussion No. 1 — issued 03:40 JST, 28 November 2026</p>
+<main id="body"></main>
+<p class="note">原文：短期予報解説資料1　2026年11月28日03時40分発表　気象庁（<a href="https://www.data.jma.go.jp/yoho/data/jishin/kaisetsu_tanki_latest.pdf">気象庁</a>）。英訳・単語：Gemini（gemini-3.8-flash）。音声：Kokoro（af_heart）。<span id="noaudio"></span></p>
+</section>
+<section class="panel" id="p-chart">
+<div class="pills"><button class="pill" id="zoomB" aria-pressed="false">拡大（横スクロール）</button></div>
+<div class="chart" id="chartBox"><img src="chart.jpg" alt="主要じょう乱解説図"></div>
+<ul class="leg" id="leg"></ul>
+<button class="pill back" id="toRead">読んでいる文に戻る</button>
+</section>
+<section class="panel" id="p-vocab">
+<input type="search" id="q" placeholder="単語・意味で検索" aria-label="単語を検索">
+<div class="pills">
+<button class="pill" id="flashB" aria-pressed="false">フラッシュカード</button>
+<button class="pill" id="todoB" aria-pressed="false">未習得だけ</button>
+</div>
+<div class="cnt"><span id="cnt"></span><button id="reset">チェックをリセット</button></div>
+<div id="vlist"></div>
+</section>
+</div>
+<button class="here" id="here" hidden></button>
+<div class="bar"><div class="now" id="now" aria-live="off"></div><div class="bi">
+<button class="bb" id="prev" aria-label="前の文"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+<button class="bb play-m" id="play" aria-label="再生"><svg id="pi" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></button>
+<button class="bb" id="next" aria-label="次の文"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+<div class="prog"><span id="pt">英文をタップでそこから再生</span><div class="track"><i id="pb"></i></div></div>
+<select id="rate" aria-label="速さ"><option value="0.8">0.8×</option><option value="0.9">0.9×</option><option value="1" selected>1.0×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option></select>
+</div></div>
+<script>
+{
+const D={"vocab": [{"w": "strong-wind axis", "pos": "名詞句", "ipa": "/strɔːŋ wɪnd ˈæksɪs/", "ja": "強風軸", "ex": "a front corresponding to a strong-wind axis near 5,820 m at 500 hPa", "exja": "500hPa 5820m付近の強風軸に対応した前線"}, {"w": "trough", "pos": "名詞", "ipa": "/trɔːf/", "ja": "気圧の谷、トラフ", "ex": "a low corresponding to a trough near 5,760 m at 500 hPa", "exja": "500hPa 5760m付近のトラフ対応の低気圧"}, {"w": "warm, moist air", "pos": "名詞句", "ipa": "/wɔːrm mɔɪst ɛr/", "ja": "暖湿気", "ex": "in association with warm, moist air in the lower layers", "exja": "下層暖湿気に対応し"}, {"w": "Tornado Advisory", "pos": "名詞句", "ipa": "/tɔːrˈneɪdoʊ ədˈvaɪzəri/", "ja": "竜巻注意情報", "ex": "Tornado Advisories have been issued for the Hokkaido region.", "exja": "北海道地方で竜巻注意情報を発表。"}, {"w": "kink", "pos": "名詞", "ipa": "/kɪŋk/", "ja": "キンク（前線上の波状の折れ曲がり）", "ex": "the frontal wave (kink) mentioned in Section 1 (1)", "exja": "1項① の前線上のキンク"}, {"w": "extremely unstable", "pos": "形容詞句", "ipa": "/ɪkˈstriːmli ʌnˈsteɪbl/", "ja": "非常に不安定な", "ex": "the atmosphere will become extremely unstable", "exja": "大気の状態が非常に不安定となる"}, {"w": "landslide", "pos": "名詞", "ipa": "/ˈlændslaɪd/", "ja": "土砂災害", "ex": "be alert to and on high alert for landslides", "exja": "土砂災害に注意・警戒"}, {"w": "inundation of low-lying land", "pos": "名詞句", "ipa": "/ˌɪnʌnˈdeɪʃn əv loʊ ˈlaɪɪŋ lænd/", "ja": "低い土地の浸水", "ex": "inundation of low-lying land, and rising river levels", "exja": "低い土地の浸水、河川の増水"}, {"w": "river swelling", "pos": "名詞句", "ipa": "/ˈrɪvər ˈswɛlɪŋ/", "ja": "河川の増水（増水）", "ex": "rising river levels", "exja": "河川の増水"}, {"w": "cold front", "pos": "名詞句", "ipa": "/koʊld frʌnt/", "ja": "寒冷前線", "ex": "a cold front will pass across northern Japan through the night of the 28th", "exja": "28日夜にかけて寒冷前線が北日本を通過"}, {"w": "winter-type pressure pattern", "pos": "名詞句", "ipa": "/ˈwɪntər taɪp ˈprɛʃər ˈpætərn/", "ja": "西高東低の気圧配置", "ex": "a winter-type pressure pattern (high to the west and low to the east) will temporarily intensify", "exja": "西高東低の気圧配置が一時的に強まる"}, {"w": "pressure gradient", "pos": "名詞句", "ipa": "/ˈprɛʃər ˈɡreɪdiənt/", "ja": "気圧の傾き、気圧傾度", "ex": "increasing the pressure gradient across northern to eastern Japan", "exja": "北～東日本は気圧の傾きが大きくなる"}, {"w": "gale-force wind", "pos": "名詞句", "ipa": "/ɡeɪl fɔːrs wɪnd/", "ja": "暴風", "ex": "be on high alert for gale-force/violent winds on the 28th", "exja": "28日は暴風に警戒し"}, {"w": "high waves", "pos": "名詞句", "ipa": "/haɪ weɪvz/", "ja": "高波", "ex": "watch for and be on high alert for high waves through the 29th", "exja": "29日にかけて高波に注意・警戒"}, {"w": "geopotential height", "pos": "名詞句", "ipa": "/ˌdʒiːoʊpəˈtɛnʃl haɪt/", "ja": "ジオポテンシャル高度、高度", "ex": "500-hPa geopotential heights of 5,160–5,580 m", "exja": "500hPa 5160m～5580m"}, {"w": "shear line", "pos": "名詞句", "ipa": "/ʃɪr laɪn/", "ja": "シアーライン", "ex": "a shear line will become prominent over the Sea of Japan", "exja": "日本海にシアーラインが顕在化し"}, {"w": "converge", "pos": "動詞", "ipa": "/kənˈvɜːrdʒ/", "ja": "収束する", "ex": "where lower-level winds converge", "exja": "下層風が収束する"}, {"w": "lightning strike", "pos": "名詞句", "ipa": "/ˈlaɪtnɪŋ straɪk/", "ja": "落雷", "ex": "watch for lightning strikes, severe gusts including tornadoes", "exja": "落雷や竜巻などの激しい突風"}, {"w": "severe gust", "pos": "名詞句", "ipa": "/sɪˈvɪr ɡʌst/", "ja": "激しい突風", "ex": "severe gusts including tornadoes, hail, and sudden downpours", "exja": "竜巻などの激しい突風、降ひょう、急な強い雨"}, {"w": "hail", "pos": "名詞", "ipa": "/heɪl/", "ja": "降ひょう、雹", "ex": "hail, and sudden downpours", "exja": "降ひょう、急な強い雨"}, {"w": "downpour", "pos": "名詞", "ipa": "/ˈdaʊnpɔːr/", "ja": "土砂降り、急な強い雨", "ex": "sudden downpours in northern Japan", "exja": "急な強い雨"}, {"w": "snow accretion", "pos": "名詞句", "ipa": "/snoʊ əˈkriːʃn/", "ja": "着雪", "ex": "traffic disruptions caused by heavy snow and snow accretion", "exja": "大雪や着雪による交通障害"}, {"w": "traffic disruption", "pos": "名詞句", "ipa": "/ˈtræfɪk dɪsˈrʌpʃn/", "ja": "交通障害", "ex": "traffic disruptions caused by heavy snow", "exja": "大雪や着雪による交通障害"}, {"w": "avalanche", "pos": "名詞", "ipa": "/ˈævəlæntʃ/", "ja": "雪崩（なだれ）", "ex": "also watch for avalanches through the 29th", "exja": "なだれにも注意"}, {"w": "obscure", "pos": "動詞", "ipa": "/əbˈskjʊr/", "ja": "不明瞭になる、不明瞭化する", "ex": "the shear line mentioned in Section 2 (4) will obscure by the night of the 29th", "exja": "シアーラインは29日夜には不明瞭化するが"}, {"w": "synoptic field", "pos": "名詞句", "ipa": "/sɪˈnɑːptɪk fiːld/", "ja": "総観場", "ex": "The synoptic field is primarily based on the GSM", "exja": "総観場はGSMを基本"}, {"w": "quantitative forecast", "pos": "名詞句", "ipa": "/ˈkwɑːntəteɪtɪv ˈfɔːrkæst/", "ja": "量的予報", "ex": "Quantitative forecasts are subject to change depending on subsequent conditions", "exja": "量的な予報については、今後の状況により変化する場合がありますので"}], "legend": [["実況", "解析時点の状況（analysis）"], ["FT12〜FT48", "12〜48時間先の予想（forecast time）"], ["kt", "ノット（knots）。風速の単位"], ["前線記号の黒塗り", "FT24"], ["白抜き", "FT48"], ["破線", "地上のシアーライン"]], "secs": [{"h": true, "ja": "１．実況上の着目点", "en": ["1. Key Points on the Current Conditions"], "jp": ["１．実況上の着目点"]}, {"h": false, "ja": "① 500hPa 5820m付近の強風軸に対応した前線が日本の南を東北東進。", "en": ["(1) A front corresponding to a strong-wind axis near 5,820 m at 500 hPa is moving east-northeastward south of Japan."], "jp": ["① 500hPa 5820m付近の強風軸に対応した前線が日本の南を東北東進。"]}, {"h": false, "ja": "② 500hPa 5760m付近のトラフ対応の低気圧が西日本の南岸を東北東進。低気圧周辺の東～西日本太平洋側で激しい雨を解析。雷を検知。", "en": ["(2) A low corresponding to a trough near 5,760 m at 500 hPa is moving east-northeastward off the southern coast of western Japan.", "Heavy rain has been analyzed on the Pacific side of eastern to western Japan around the low.", "Lightning has been detected."], "jp": ["② 500hPa 5760m付近のトラフ対応の低気圧が西日本の南岸を東北東進。", "低気圧周辺の東～西日本太平洋側で激しい雨を解析。", "雷を検知。"]}, {"h": false, "ja": "③ 500hPa 5280m付近のトラフ対応の前線を伴った低気圧が日本海北部を東北東進。低気圧前面の日本海で、下層暖湿気に対応し激しい雨を解析。北海道地方で竜巻注意情報を発表。", "en": ["(3) A low accompanied by a front corresponding to a trough near 5,280 m at 500 hPa is moving east-northeastward over the northern Sea of Japan.", "Over the Sea of Japan ahead of the low, heavy rain has been analyzed in association with warm, moist air in the lower layers.", "Tornado Advisories have been issued for the Hokkaido region."], "jp": ["③ 500hPa 5280m付近のトラフ対応の前線を伴った低気圧が日本海北部を東北東進。", "低気圧前面の日本海で、下層暖湿気に対応し激しい雨を解析。", "北海道地方で竜巻注意情報を発表。"]}, {"h": true, "ja": "２．主要じょう乱の予想根拠と防災事項を含む解説上の留意点", "en": ["2. Basis for Forecasting Major Disturbances and Key Explanatory Points Including Disaster Prevention Considerations"], "jp": ["２．主要じょう乱の予想根拠と防災事項を含む解説上の留意点"]}, {"h": false, "ja": "① 28日朝にかけて、1項① の前線上のキンクは伊豆諸島南部付近を通過し、1項② の低気圧は関東地方沿岸へ進む。これらの周辺の東～西日本では、下層暖湿気や上空トラフの影響で大気の状態が非常に不安定となる。関東甲信地方では28日は、土砂災害、低い土地の浸水、河川の増水に注意・警戒。", "en": ["(1) Through the morning of the 28th, the frontal wave (kink) mentioned in Section 1 (1) will pass near the southern Izu Islands, and the low mentioned in Section 1 (2) will advance toward the coast of the Kanto region.", "Around these systems in eastern to western Japan, the atmosphere will become extremely unstable due to the effects of warm, moist air in the lower layers and upper-level troughs.", "In the Kanto-Koshin region on the 28th, be alert to and on high alert for landslides, inundation of low-lying land, and rising river levels."], "jp": ["① 28日朝にかけて、1項① の前線上のキンクは伊豆諸島南部付近を通過し、1項② の低気圧は関東地方沿岸へ進む。", "これらの周辺の東～西日本では、下層暖湿気や上空トラフの影響で大気の状態が非常に不安定となる。", "関東甲信地方では28日は、土砂災害、低い土地の浸水、河川の増水に注意・警戒。"]}, {"h": false, "ja": "② 1項③ の低気圧は28日朝にはオホーツク海へ進み、28日夜にかけて寒冷前線が北日本を通過。寒冷前線の前面となる北日本は下層暖湿気の影響で、大気の状態が非常に不安定となる。", "en": ["(2) The low mentioned in Section 1 (3) will move into the Sea of Okhotsk by the morning of the 28th, and a cold front will pass across northern Japan through the night of the 28th.", "In northern Japan ahead of the cold front, the atmosphere will become extremely unstable due to the influence of warm, moist air in the lower layers."], "jp": ["② 1項③ の低気圧は28日朝にはオホーツク海へ進み、28日夜にかけて寒冷前線が北日本を通過。", "寒冷前線の前面となる北日本は下層暖湿気の影響で、大気の状態が非常に不安定となる。"]}, {"h": false, "ja": "③ 2項① ② の低気圧は、28日夜にかけて発達しながらオホーツク海や日本の東に進み、その後29日にかけて、日本付近は大陸の高気圧との間で西高東低の気圧配置が一時的に強まる。30日は高気圧が日本の南から日本の東へ移動するが、次の低気圧が日本海北部に進み、北～東日本は気圧の傾きが大きくなる。これらの影響で全国的に風が強く吹き、波が高くなり、しける所が多くなる。西日本では28日は暴風に警戒し、29日にかけて高波に注意・警戒。北日本では29日にかけて、強風や高波に注意・警戒。北～東日本では30日にかけて、西日本と南西諸島では29日にかけて、強風や高波に注意。", "en": ["(3) The lows mentioned in Section 2 (1) and (2) will advance toward the Sea of Okhotsk and east of Japan while developing through the night of the 28th; subsequently through the 29th, a winter-type pressure pattern (high to the west and low to the east) will temporarily intensify over Japan between these lows and continental high pressure.", "On the 30th, although the anticyclone will move from south of Japan to east of Japan, the next low will move into the northern Sea of Japan, increasing the pressure gradient across northern to eastern Japan.", "Under these influences, strong winds will blow and waves will become high nationwide, leading to stormy seas in many areas.", "In western Japan, be on high alert for gale-force/violent winds on the 28th, and watch for and be on high alert for high waves through the 29th.", "In northern Japan, watch for and be on high alert for strong winds and high waves through the 29th.", "In northern to eastern Japan through the 30th, and in western Japan and the Nansei Islands through the 29th, watch for strong winds and high waves."], "jp": ["③ 2項① ② の低気圧は、28日夜にかけて発達しながらオホーツク海や日本の東に進み、その後29日にかけて、日本付近は大陸の高気圧との間で西高東低の気圧配置が一時的に強まる。", "30日は高気圧が日本の南から日本の東へ移動するが、次の低気圧が日本海北部に進み、北～東日本は気圧の傾きが大きくなる。", "これらの影響で全国的に風が強く吹き、波が高くなり、しける所が多くなる。", "西日本では28日は暴風に警戒し、29日にかけて高波に注意・警戒。", "北日本では29日にかけて、強風や高波に注意・警戒。", "北～東日本では30日にかけて、西日本と南西諸島では29日にかけて、強風や高波に注意。"]}, {"h": false, "ja": "④ 29日にかけて、500hPa 5160m～5580mの寒気を伴う深いトラフが本州を通過し、北～西日本の上空500hPaには平年より10℃程度低い寒気が流れ込む。地上では2項① ② の低気圧や前線が通過した後、29日前半にかけて日本海にシアーラインが顕在化し、下層風が収束するシアーライン付近を中心に、上空寒気の影響で大気の状態が非常に不安定となる。2項① ② の要因と合わせて、北日本では30日にかけて、東～西日本では29日にかけて、落雷や竜巻などの激しい突風、降ひょう、急な強い雨に注意。", "en": ["(4) Through the 29th, a deep trough with cold air accompanied by 500-hPa geopotential heights of 5,160–5,580 m will pass over Honshu, and cold air about 10°C lower than normal will flow into the upper levels at 500 hPa over northern to western Japan.", "At the surface, following the passage of the lows and fronts mentioned in Section 2 (1) and (2), a shear line will become prominent over the Sea of Japan through the first half of the 29th; mainly near this shear line where lower-level winds converge, the atmosphere will become extremely unstable due to the effect of upper-level cold air.", "Combined with the factors in Section 2 (1) and (2), watch for lightning strikes, severe gusts including tornadoes, hail, and sudden downpours in northern Japan through the 30th and in eastern to western Japan through the 29th."], "jp": ["④ 29日にかけて、500hPa 5160m～5580mの寒気を伴う深いトラフが本州を通過し、北～西日本の上空500hPaには平年より10℃程度低い寒気が流れ込む。", "地上では2項① ② の低気圧や前線が通過した後、29日前半にかけて日本海にシアーラインが顕在化し、下層風が収束するシアーライン付近を中心に、上空寒気の影響で大気の状態が非常に不安定となる。", "2項① ② の要因と合わせて、北日本では30日にかけて、東～西日本では29日にかけて、落雷や竜巻などの激しい突風、降ひょう、急な強い雨に注意。"]}, {"h": false, "ja": "⑤ 850hPa -6℃以下の寒気が29日の日中をピークに北日本中心に流れ込み、東日本では山地中心に、北日本は平地を含めて降雪となる所がある。北～東日本では29日は、大雪や着雪による交通障害に注意。多雪地では29日にかけてなだれにも注意。2項④ のシアーラインは29日夜には不明瞭化するが、28日からの降雨量が北陸地方中心に多くなる。北～東日本では29日にかけて、土砂災害に注意・警戒。", "en": ["(5) Cold air of -6°C or lower at 850 hPa will flow in mainly over northern Japan, peaking during the daytime on the 29th, and snowfall will occur mainly in mountainous areas in eastern Japan and across northern Japan including plains.", "In northern to eastern Japan on the 29th, watch for traffic disruptions caused by heavy snow and snow accretion.", "In snowy areas, also watch for avalanches through the 29th.", "Although the shear line mentioned in Section 2 (4) will obscure by the night of the 29th, cumulative rainfall since the 28th will become substantial, centered on the Hokuriku region.", "In northern to eastern Japan through the 29th, be alert to and on high alert for landslides."], "jp": ["⑤ 850hPa -6℃以下の寒気が29日の日中をピークに北日本中心に流れ込み、東日本では山地中心に、北日本は平地を含めて降雪となる所がある。", "北～東日本では29日は、大雪や着雪による交通障害に注意。", "多雪地では29日にかけてなだれにも注意。", "2項④ のシアーラインは29日夜には不明瞭化するが、28日からの降雨量が北陸地方中心に多くなる。", "北～東日本では29日にかけて、土砂災害に注意・警戒。"]}, {"h": true, "ja": "３．数値予報資料解釈上の留意点", "en": ["3. Key Points in Interpreting Numerical Weather Prediction Guidance"], "jp": ["３．数値予報資料解釈上の留意点"]}, {"h": false, "ja": "総観場はGSMを基本、量的予想や降水分布はMSMやLFMも参考。", "en": ["The synoptic field is primarily based on the GSM, with the MSM and LFM also referenced for quantitative forecasts and precipitation distribution."], "jp": ["総観場はGSMを基本、量的予想や降水分布はMSMやLFMも参考。"]}, {"h": true, "ja": "４．防災関連事項", "en": ["4. Disaster Prevention Matters"], "jp": ["４．防災関連事項"]}, {"h": false, "ja": "[量的予報等] ① 雨量(06時からの24時間)：北陸100mm。② 波浪(明日まで)：伊豆諸島5、全国的に4～3m。", "en": ["[Quantitative Forecasts, etc.] (1) Precipitation (24 hours from 06:00): Hokuriku 100 mm.", "(2) Ocean waves (through tomorrow): Izu Islands 5 m, nationwide 4 to 3 m."], "jp": ["[量的予報等] ① 雨量(06時からの24時間)：北陸100mm。", "② 波浪(明日まで)：伊豆諸島5、全国的に4～3m。"]}, {"h": true, "ja": "５．全般気象解説情報発表の有無", "en": ["5. Schedule for Issuance of General Weather Discussion Information"], "jp": ["５．全般気象解説情報発表の有無"]}, {"h": false, "ja": "「落雷・突風・降ひょう」を5時頃に発表予定。", "en": ["Information on \"Lightning, Gusts, and Hail\" is scheduled to be issued around 05:00."], "jp": ["「落雷・突風・降ひょう」を5時頃に発表予定。"]}, {"h": false, "ja": "（注）量的な予報については、今後の状況により変化する場合がありますので、注意報・警報や全般気象情報等に記述する数値を利用願います。", "en": ["(Note) Quantitative forecasts are subject to change depending on subsequent conditions, so please refer to values stated in advisories, warnings, and general weather info bulletins."], "jp": ["（注）量的な予報については、今後の状況により変化する場合がありますので、注意報・警報や全般気象情報等に記述する数値を利用願います。"]}], "times": [0.0, 2.73, 14.19, 26.37, 32.86, 35.06, 47.78, 56.63, 60.88, 69.65, 84.41, 96.36, 106.82, 119.24, 129.41, 151.9, 165.62, 174.05, 184.85, 191.59, 201.62, 224.15, 246.32, 261.91, 281.14, 289.33, 293.88, 306.32, 312.78, 317.28, 328.23, 330.86, 341.12, 347.86, 352.54, 359.6], "vtimes": [[0.0, 9.14], [9.44, 17.34], [17.64, 22.56], [22.86, 28.65], [28.95, 33.46], [33.76, 38.44], [38.74, 43.08], [43.38, 49.45], [49.75, 52.72], [53.02, 59.01], [59.31, 67.21], [67.51, 73.11], [73.41, 79.37], [79.67, 85.03], [85.33, 93.98], [94.28, 98.75], [99.05, 102.37], [102.67, 108.27], [108.57, 114.31], [114.61, 117.61], [117.91, 121.57], [121.87, 127.29], [127.59, 131.98], [132.28, 136.79], [137.09, 143.86], [144.16, 149.18], [149.48, 156.53]], "audio": true};
+const T=D.times||[],VT=D.vtimes||[],HAS=!!D.audio;
+const A=new Audio(HAS?'audio.mp3':''),VA=new Audio(HAS?'vocab.mp3':'');
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+/* reading */
+const S=[];let h='';
+D.secs.forEach(x=>{
+  const s0=S.length;
+  const en=x.en.map(t=>{S.push(t);return `<span class="s" data-i="${S.length-1}">${esc(t)}</span>`}).join(' ');
+  const s1=S.length-1;
+  const jp=(x.jp&&x.jp.length===x.en.length)?x.jp.map((p,k)=>`<span class="jp" data-a="${s0+k}" data-b="${s0+k}">${esc(p)}</span>`).join(''):`<span class="jp" data-a="${s0}" data-b="${s1}">${esc(x.ja)}</span>`;
+  h+=x.h?`<h2>${jp}<span class="h-en">${en}</span></h2>`
+   :`<p class="ja">${jp}</p><button class="rv for-ja">和訳を見る</button><p class="en">${en}</p><button class="rv for-en">英訳を見る</button>`;
+});
+$('body').innerHTML=h;
+$('body').addEventListener('click',e=>{const b=e.target.closest('.rv');if(!b)return;const p=b.classList.contains('for-ja')?b.previousElementSibling:b.previousElementSibling;p.classList.toggle('show');b.textContent=p.classList.contains('show')?'隠す':(b.classList.contains('for-ja')?'和訳を見る':'英訳を見る')});
+const setMode=m=>{document.body.className='m-'+m;document.querySelectorAll('#modes [data-m]').forEach(p=>p.setAttribute('aria-pressed',p.dataset.m===m));document.querySelectorAll('.show').forEach(x=>x.classList.remove('show'));document.querySelectorAll('.rv').forEach(b=>b.textContent=b.classList.contains('for-ja')?'和訳を見る':'英訳を見る');ls.set('tk_mode',m)};
+document.querySelectorAll('#modes [data-m]').forEach(p=>p.onclick=()=>setMode(p.dataset.m));
+setMode(ls.get('tk_mode','both'));
+/* tabs */
+const pos={read:0,chart:0,vocab:0};let tab='read';
+const show=t=>{if(t===tab)return;pos[tab]=scrollY;tab=t;document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+t));$('mbar').hidden=t!=='read';
+  if(t==='read'&&!A.paused&&auto){spans[cur]&&spans[cur].scrollIntoView({block:'center'})}else scrollTo(0,pos[t]);where()};
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(b.dataset.t));
+$('toRead').onclick=()=>{show('read');spans[cur]&&spans[cur].scrollIntoView({block:'center'})};
+/* chart */
+$('leg').innerHTML=D.legend.map(l=>`<li><b>${esc(l[0])}</b><span>${esc(l[1])}</span></li>`).join('');
+$('zoomB').onclick=e=>{const on=$('chartBox').classList.toggle('big');e.currentTarget.setAttribute('aria-pressed',on)};
+/* main audio */
+const spans=[...document.querySelectorAll('.s')];let cur=0,last=-1;
+let auto=!!ls.get('tk_auto',false);$('autoB').setAttribute('aria-pressed',auto);
+$('autoB').onclick=e=>{auto=!auto;e.currentTarget.setAttribute('aria-pressed',auto);ls.set('tk_auto',auto);if(auto&&!A.paused&&spans[last])spans[last].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});where()};
+let rate=+ls.get('tk_rate',1);$('rate').value=String(rate);A.playbackRate=rate;
+if(!HAS){$('pt').textContent='この号の音声は保存期間（1か月）を過ぎました';['play','prev','next','rate'].forEach(i=>$(i).disabled=true)}
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const mark=i=>{if(i===last)return;last=i;spans.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));if(auto&&tab==='read'&&!A.paused&&spans[i])spans[i].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});$('pt').innerHTML=`<b>${i+1} / ${S.length}</b>`;jps.forEach(e=>e.classList.toggle('jon',i>=+e.dataset.a&&i<=+e.dataset.b));cap(i);where()};
+const jps=[...document.querySelectorAll('.jp')];
+let words=[],wlen=[],wdone=-1,wline=-1;
+const cap=i=>{const ws=S[i].split(/\s+/).filter(Boolean);$('now').innerHTML=`<div class="tx" id="tx">${ws.map(w=>`<i>${esc(w)}</i>`).join(' ')}</div>`;words=[...$('tx').children];let c=0;wlen=ws.map(w=>c+=w.length+1);wdone=-1;wline=-1;kara()};
+const where=()=>{const h=$('here');const el=spans[last];if(tab!=='read'||last<0||!el||(A.paused&&!A.currentTime)){h.hidden=true;return}const r=el.getBoundingClientRect(),top=document.querySelector('header').getBoundingClientRect().bottom,bot=document.querySelector('.bar').getBoundingClientRect().top;if(r.bottom<top+4){h.textContent=`↑ 読み上げ中（${last+1}/${S.length}）`;h.hidden=false}else if(r.top>bot-4){h.textContent=`↓ 読み上げ中（${last+1}/${S.length}）`;h.hidden=false}else h.hidden=true};
+let wq=0;addEventListener('scroll',()=>{if(wq)return;wq=requestAnimationFrame(()=>{wq=0;where()})},{passive:true});addEventListener('resize',where);
+$('here').onclick=()=>{spans[last]&&spans[last].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})};
+const idx=t=>{let i=0;while(i+1<T.length&&T[i+1]<=t+0.05)i++;return i};
+A.ontimeupdate=()=>{if(A.seeking)return;cur=idx(A.currentTime);mark(cur);$('pb').style.width=(A.duration?A.currentTime/A.duration*100:0)+'%'};
+const icon=p=>{$('pi').innerHTML=p?'<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>':'<path d="M7 4v16l13-8z"/>';$('play').setAttribute('aria-label',p?'一時停止':'再生')};
+A.onplay=()=>{icon(true);VA.pause();loop()};A.onpause=A.onended=()=>icon(false);
+let raf=0;const kara=()=>{const tx=$('tx');if(!tx||last<0||!words.length)return;const st=T[last],en=last+1<T.length?T[last+1]-0.45:(A.duration||st+5);const f=Math.max(0,Math.min(1,(A.currentTime-st)/Math.max(0.3,en-st)));const tot=wlen[wlen.length-1];let k=0;while(k<wlen.length-1&&wlen[k]<=f*tot)k++;if(f<=0.001)k=-1;else if(f>=0.999)k=words.length-1;if(k!==wdone){words.forEach((w,j)=>w.classList.toggle('d',j<=k));wdone=k}const cur=words[Math.max(0,Math.min(words.length-1,k+1))]||words[0];const top=cur.offsetTop;if(top!==wline){tx.style.transform=`translateY(${-top}px)`;wline=top}};
+const loop=()=>{cancelAnimationFrame(raf);const step=()=>{kara();if(!A.paused)raf=requestAnimationFrame(step)};raf=requestAnimationFrame(step)};
+const seek=t=>{if(A.readyState>=1)A.currentTime=t;else A.addEventListener('loadedmetadata',()=>{A.currentTime=t},{once:true})};
+const go=i=>{i=Math.max(0,Math.min(S.length-1,i));seek(T[i]);cur=i;last=-1;mark(i);A.play().catch(()=>{})};
+$('play').onclick=()=>A.paused?A.play().catch(()=>{}):A.pause();
+$('prev').onclick=()=>go(cur-1);$('next').onclick=()=>go(cur+1);
+spans.forEach(s=>s.onclick=()=>go(+s.dataset.i));
+$('rate').onchange=e=>{rate=+e.target.value;A.playbackRate=rate;
+ls.set('tk_rate',rate)};
+/* vocab */
+let done=new Set(ls.get('tk_learned',[])),flash=false,todo=false,vEnd=0,vBtn=null;
+const spk='<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9zM16 8a5 5 0 0 1 0 8l-1-1.4a3.3 3.3 0 0 0 0-5.2zM18.5 5a9 9 0 0 1 0 14l-1-1.4a7.2 7.2 0 0 0 0-11.2z"/></svg>';
+$('vtab').textContent=`単語帳（${D.vocab.length}）`;
+const renderV=()=>{const q=$('q').value.trim().toLowerCase();
+  const list=D.vocab.map((v,i)=>({v,i})).filter(({v})=>(!todo||!done.has(v.w))&&(!q||(v.w+v.ja+v.ex).toLowerCase().includes(q)));
+  $('vlist').className=flash?'flash':'';
+  $('vlist').innerHTML=list.length?list.map(({v,i})=>`<div class="v${done.has(v.w)?' done':''}" data-i="${i}"><div class="vw">${esc(v.w)}</div><div class="vbtn"><button class="say" data-i="${i}" aria-label="${esc(v.w)}の発音">${spk}</button><button class="got" data-i="${i}">${done.has(v.w)?'覚えた✓':'覚えた'}</button></div><div class="vm">${esc(v.pos)} · ${esc(v.ipa)}</div><div class="vb${flash?' hide':''}"><div class="vj">${esc(v.ja)}</div><div class="vx">${esc(v.ex)}</div><div class="vxj">${esc(v.exja)}</div></div></div>`).join(''):'<p class="empty">該当する単語はありません</p>';
+  $('cnt').textContent=`${D.vocab.length}語中 ${D.vocab.filter(v=>done.has(v.w)).length}語 覚えた`};
+$('vlist').addEventListener('click',e=>{
+  const s=e.target.closest('.say'),g=e.target.closest('.got'),c=e.target.closest('.v');
+  if(s){if(!HAS)return;const i=+s.dataset.i;A.pause();if(vBtn)vBtn.classList.remove('play');if(vBtn===s&&!VA.paused){VA.pause();vBtn=null;return}vBtn=s;s.classList.add('play');VA.currentTime=VT[i][0];vEnd=VT[i][1];VA.play().catch(()=>{});return}
+  if(g){const w=D.vocab[+g.dataset.i].w;done.has(w)?done.delete(w):done.add(w);ls.set('tk_learned',[...done]);renderV();return}
+  if(c&&flash)c.querySelector('.vb').classList.toggle('hide')});
+VA.ontimeupdate=()=>{if(VA.currentTime>=vEnd){VA.pause()}};
+VA.onpause=()=>{if(vBtn){vBtn.classList.remove('play');vBtn=null}};
+$('q').oninput=renderV;
+$('flashB').onclick=e=>{flash=!flash;e.currentTarget.setAttribute('aria-pressed',flash);renderV()};
+$('todoB').onclick=e=>{todo=!todo;e.currentTarget.setAttribute('aria-pressed',todo);renderV()};
+$('reset').onclick=()=>{done.clear();ls.set('tk_learned',[]);renderV()};
+renderV();
+}
+</script>
+</body>
+</html>
